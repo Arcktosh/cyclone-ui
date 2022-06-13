@@ -4,7 +4,7 @@
     "registry": "https://npm.pkg.github.com/Arcktosh"
   },
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A Responsive React Tailwind Component library",
   "scripts": {
     "rollup": "rollup -c"
