@@ -1,44 +1,15 @@
 import { useState } from "react"
 import Button from "../Button"
+import { ButtonProps } from "../Button/Button"
 import "./Modal.css"
 
 type popup = {
   heading?: string
   message?: string
 }
-type button = {
-  label?: string
-  bgColor?:
-    | "primary"
-    | "secondary"
-    | "success"
-    | "danger"
-    | "warning"
-    | "info"
-    | "light"
-    | "dark"
-    | "accent"
-    | "ghost"
-    | "link"
-  shape?: "square" | "circle" | "block"
-  isOutlined?: boolean
-  isLoading?: boolean
-  disabledAnimation?: boolean
-  isActive?: boolean
-  isDisabled?: boolean
-  isGlass?: boolean
-  isWide?: boolean
-  width?: number
-  size?: "xs" | "sm" | "lg"
-  utilClass?: string
-  iconStart?: string //SVG
-  iconEnd?: string //SVG
-  tabIndex?: number
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
-}
 
 export interface ModalProps {
-  button?: button
+  button?: ButtonProps
   message?: popup
   children?: React.ReactNode
 }

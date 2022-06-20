@@ -1,5 +1,5 @@
-import "./Button.css"
-export interface ButtonProps {
+import "./Steps.css"
+export interface StepsProps {
   label?: string
   bgColor?:
     | "primary"
@@ -29,7 +29,7 @@ export interface ButtonProps {
   tabIndex?: number
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
-const Button = (props: ButtonProps) => {
+const Steps = (props: StepsProps) => {
   let bgColor = props.bgColor ? `btn-${props.bgColor}` : ""
   const shape = props.shape ? `btn-${props.shape}` : ""
   const utilClass = props.utilClass ? `${props.utilClass}` : ""
@@ -78,4 +78,4 @@ const Button = (props: ButtonProps) => {
   )
 }
 
-export default Button
+export default Steps

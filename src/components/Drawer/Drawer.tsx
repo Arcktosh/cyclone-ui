@@ -1,5 +1,5 @@
-import "./Button.css"
-export interface ButtonProps {
+import "./Drawer.css"
+export interface DrawerProps {
   label?: string
   bgColor?:
     | "primary"
@@ -29,7 +29,7 @@ export interface ButtonProps {
   tabIndex?: number
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
-const Button = (props: ButtonProps) => {
+const Drawer = (props: DrawerProps) => {
   let bgColor = props.bgColor ? `btn-${props.bgColor}` : ""
   const shape = props.shape ? `btn-${props.shape}` : ""
   const utilClass = props.utilClass ? `${props.utilClass}` : ""
@@ -78,4 +78,4 @@ const Button = (props: ButtonProps) => {
   )
 }
 
-export default Button
+export default Drawer

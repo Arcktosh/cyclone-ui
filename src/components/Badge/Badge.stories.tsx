@@ -16,7 +16,10 @@ HelloWorld.args = {
   label: "Hello world!",
 }
 
-export const ClickMe = Template.bind({})
-ClickMe.args = {
-  label: "Click me!",
+export const New = Template.bind({})
+New.args = {
+  label: "New!",
+  outline: true,
+  color: "primary",
+  size: "lg",
 }

@@ -1,22 +1,27 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import Button from "./Button"
+import Alert from "./Alert"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Components/DataDisplay/Button",
-  component: Button,
-} as ComponentMeta<typeof Button>
+  title: "Components/DataDisplay/Alert",
+  component: Alert,
+} as ComponentMeta<typeof Alert>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args} />
 
 export const HelloWorld = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 HelloWorld.args = {
-  label: "Hello world!",
+  title: "Hello world!",
+  bgColor: "info",
+  iconOn: true,
 }
 
 export const ClickMe = Template.bind({})
 ClickMe.args = {
-  label: "Click me!",
+  title: "Click me!",
+  description: "This is a description",
+  iconOn: true,
+  children: <button className="btn btn-sm btn-ghost">Deny</button>,
 }

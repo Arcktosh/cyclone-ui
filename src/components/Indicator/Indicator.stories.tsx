@@ -1,14 +1,14 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import Button from "./Button"
+import Indicator from "./Indicator"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Components/Layout/Button",
-  component: Button,
-} as ComponentMeta<typeof Button>
+  title: "Components/Layout/Indicator",
+  component: Indicator,
+} as ComponentMeta<typeof Indicator>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+const Template: ComponentStory<typeof Indicator> = (args) => <Indicator {...args} />
 
 export const HelloWorld = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

@@ -1,81 +1,105 @@
-import "./Button.css"
-export interface ButtonProps {
-  label?: string
-  bgColor?:
-    | "primary"
-    | "secondary"
-    | "success"
-    | "danger"
-    | "warning"
-    | "info"
-    | "light"
-    | "dark"
-    | "accent"
-    | "ghost"
-    | "link"
-  shape?: "square" | "circle" | "block"
-  isOutlined?: boolean
-  isLoading?: boolean
-  disabledAnimation?: boolean
-  isActive?: boolean
-  isDisabled?: boolean
-  isGlass?: boolean
-  isWide?: boolean
-  width?: number
-  size?: "xs" | "sm" | "lg"
-  utilClass?: string
-  iconStart?: string //SVG
-  iconEnd?: string //SVG
-  tabIndex?: number
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
+import "./Alert.css"
+export interface AlertProps {
+  title?: string
+  description?: string
+  bgColor?: "info" | "success" | "warning" | "error"
+  iconOn?: boolean
+  svgIcon?: string
+  children?: React.ReactNode
 }
-const Button = (props: ButtonProps) => {
-  let bgColor = props.bgColor ? `btn-${props.bgColor}` : ""
-  const shape = props.shape ? `btn-${props.shape}` : ""
-  const utilClass = props.utilClass ? `${props.utilClass}` : ""
-  const isLoading = props.isLoading ? "loading" : ""
-  const isActive = props.isActive ? "btn-active" : ""
-  const isDisabled = props.isDisabled ? "btn-disabled" : ""
-  const disabledAnimation = props.disabledAnimation ? "no-animation" : ""
-  const isOutlined = props.isOutlined ? "btn-outline" : ""
-  const isGlass = props.isGlass ? "glass" : ""
-  const isWide = props.isWide ? "btn-wide" : ""
-  const width = props.width ? `w-${props.width}` : ""
-  const size = props.size ? `btn-${props.size}` : ""
-  const btnSize = props.width ? width : props.size ? size : ""
-  let responsive = ""
-  switch (size) {
-    case "xs":
-      responsive = "sm:w-1/3 md:w-1/6 lg:w-1/8 xl:w-1/10"
-      break
-    case "sm":
-      responsive = "sm:w-1/2 md:w-1/3 lg:1/4 xl:w-1/5"
-      break
-    case "lg":
-      responsive = "sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
-      break
-    default:
-      responsive = "sm:btn-sm md:btn-md lg:btn-lg"
-      break
+const Alert = (props: AlertProps) => {
+  const bgColor = props.bgColor ? `alert alert-${props.bgColor}` : "alert"
+  const svg = () => {
+    if (props.iconOn) {
+      if (props.svgIcon) {
+        return props.svgIcon
+      } else {
+        switch (props.bgColor) {
+          case "info":
+            return (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="stroke-current flex-shrink-0 w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            )
+          case "success":
+            return (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="stroke-current flex-shrink-0 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            )
+          case "warning":
+            return (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="stroke-current flex-shrink-0 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+            )
+          case "error":
+            return (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="stroke-current flex-shrink-0 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            )
+          default:
+            return ""
+        }
+      }
+    } else {
+      return <></>
+    }
   }
-  const classes = `${disabledAnimation} ${
-    props.iconStart || props.iconEnd ? "gap-2" : ""
-  } ${shape} ${isLoading} ${isActive} ${isOutlined} ${isGlass} ${isWide} ${bgColor} ${isDisabled} ${btnSize} ${utilClass} ${responsive}`.replace(
-    /\s\s/g,
-    " "
-  )
 
   return (
-    <button
-      className={`btn ${classes}`}
-      onClick={props.onClick}
-      tabIndex={props.tabIndex ? props.tabIndex : 0}
-    >
-      {props.iconStart}
-      {props.label ? props.label : "X"}
-      {props.iconEnd}
-    </button>
+    <div className={`${bgColor} shadow-lg`}>
+      <div>
+        {svg()}
+        <span>
+          <h3 className="font-bold">{props.title}</h3>
+          <div className="text-xs">{props.description}</div>
+        </span>
+      </div>
+      <div className="flex">{props?.children}</div>
+    </div>
   )
 }
 
-export default Button
+export default Alert
