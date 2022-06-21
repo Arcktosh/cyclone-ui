@@ -1,4 +1,5 @@
 import "./Artboard.css"
+import ReplaceSpaces from "../../scripts/replaceSpaces"
 export interface ArtboardProps {
   label?: string
   horizontal?: boolean
@@ -8,7 +9,8 @@ export interface ArtboardProps {
 const Artboard = (props: ArtboardProps) => {
   const horizontal = props.horizontal ? "artboard-horizontal" : ""
 
-  const classes = `${horizontal} ${props.size}`.replace(/\s\s/g, " ")
+  const classes = ReplaceSpaces(`${horizontal} ${props.size}`)
+
   return (
     <div className={`artboard artboard-demo ${classes} `}>
       {props.label}

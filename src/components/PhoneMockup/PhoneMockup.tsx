@@ -1,3 +1,4 @@
+import ReplaceSpaces from "../../scripts/replaceSpaces"
 import "./PhoneMockup.css"
 export interface PhoneMockupProps {
   label?: string
@@ -58,11 +59,10 @@ const PhoneMockup = (props: PhoneMockupProps) => {
       responsive = "sm:btn-sm md:btn-md lg:btn-lg"
       break
   }
-  const classes = `${disabledAnimation} ${
-    props.iconStart || props.iconEnd ? "gap-2" : ""
-  } ${shape} ${isLoading} ${isActive} ${isOutlined} ${isGlass} ${isWide} ${bgColor} ${isDisabled} ${btnSize} ${utilClass} ${responsive}`.replace(
-    /\s\s/g,
-    " "
+  const classes = ReplaceSpaces(
+    `${disabledAnimation} ${
+      props.iconStart || props.iconEnd ? "gap-2" : ""
+    } ${shape} ${isLoading} ${isActive} ${isOutlined} ${isGlass} ${isWide} ${bgColor} ${isDisabled} ${btnSize} ${utilClass} ${responsive}`
   )
 
   return (

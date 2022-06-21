@@ -1,4 +1,6 @@
 import "./Avatar.css"
+import ReplaceSpaces from "../../scripts/replaceSpaces"
+
 type presence = { online?: boolean }
 type shapes = "circle" | "hexagon" | "squircle" | "triangle"
 type rounded = "xl" | "full"
@@ -74,11 +76,9 @@ const Avatar = (props: AvatarProps) => {
     return url ? "" : "placeholder"
   }
 
-  const classes =
-    `${width} ${rounded} ${mask()} ${bgColor} ${textColor} ${presence} ${ring}`.replace(
-      /\s\s/g,
-      " "
-    )
+  const classes = ReplaceSpaces(
+    `${width} ${rounded} ${mask()} ${bgColor} ${textColor} ${presence} ${ring}`
+  )
 
   return (
     <>

@@ -1,4 +1,5 @@
 import "./Button.css"
+import ReplaceSpaces from "../../scripts/replaceSpaces"
 export interface ButtonProps {
   label?: string
   bgColor?:
@@ -58,16 +59,15 @@ const Button = (props: ButtonProps) => {
       responsive = "sm:btn-sm md:btn-md lg:btn-lg"
       break
   }
-  const classes = `${disabledAnimation} ${
-    props.iconStart || props.iconEnd ? "gap-2" : ""
-  } ${shape} ${isLoading} ${isActive} ${isOutlined} ${isGlass} ${isWide} ${bgColor} ${isDisabled} ${btnSize} ${utilClass} ${responsive}`.replace(
-    /\s\s/g,
-    " "
+  const classes = ReplaceSpaces(
+    `btn ${disabledAnimation} ${
+      props.iconStart || props.iconEnd ? "gap-2" : ""
+    } ${shape} ${isLoading} ${isActive} ${isOutlined} ${isGlass} ${isWide} ${bgColor} ${isDisabled} ${btnSize} ${utilClass} ${responsive}`
   )
 
   return (
     <button
-      className={`btn ${classes}`}
+      className={classes}
       onClick={props.onClick}
       tabIndex={props.tabIndex ? props.tabIndex : 0}
     >

@@ -1,4 +1,5 @@
 import "./Badge.css"
+import ReplaceSpaces from "../../scripts/replaceSpaces"
 
 type sizes = "xs" | "sm" | "md" | "lg"
 type color =
@@ -21,7 +22,7 @@ const Badge = (props: BadgeProps) => {
   const color = props.color ? `badge-${props.color}` : ""
   const outline = props.outline ? "badge-outline" : ""
   const size = props.size ? `badge-${props.size}` : ""
-  const classes = `badge ${size} ${color} ${outline}`.replace(/\s\s/g, " ")
+  const classes = ReplaceSpaces(`badge ${size} ${color} ${outline}`)
 
   return <span className={classes}>{props.label}</span>
 }
