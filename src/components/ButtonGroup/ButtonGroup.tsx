@@ -1,6 +1,5 @@
 import "./ButtonGroup.css"
-import Button from "../Button/Button"
-import { ButtonProps } from "../Button/Button"
+import Button, { ButtonProps } from "../Button/Button"
 
 type radioList = {
   id?: number

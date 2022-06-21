@@ -1,80 +1,92 @@
 import "./Card.css"
-export interface CardProps {
-  label?: string
-  bgColor?:
-    | "primary"
-    | "secondary"
-    | "success"
-    | "danger"
-    | "warning"
-    | "info"
-    | "light"
-    | "dark"
-    | "accent"
-    | "ghost"
-    | "link"
-  shape?: "square" | "circle" | "block"
-  isOutlined?: boolean
-  isLoading?: boolean
-  disabledAnimation?: boolean
-  isActive?: boolean
-  isDisabled?: boolean
-  isGlass?: boolean
-  isWide?: boolean
-  width?: number
-  size?: "xs" | "sm" | "lg"
-  utilClass?: string
-  iconStart?: string //SVG
-  iconEnd?: string //SVG
-  tabIndex?: number
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
+import Button, { ButtonProps } from "../Button/Button"
+import ReplaceSpaces from "../../scripts/replaceSpaces"
+import Badge, { BadgeProps } from "../Badge/Badge"
+import { backgrounds, Colors, PaddingClasses, Paddings } from "../../static"
+
+type Image = {
+  url?: string
+  alt?: string
+  padding?: Paddings //padding for the image
+  overlay?: boolean
 }
+type Direction = {
+  buttonTop?: boolean // Display Button at top of card
+  imageSide?: boolean // Display Image on side of card
+  imageBottom?: boolean // Display Image at bottom of card
+}
+
+export interface CardProps {
+  compactMode?: boolean // Less Padding for `card-body`
+  img?: Image
+  title?: string
+  subtitle?: string
+  buttons?: ButtonProps[] // Add a Button to the Card
+  directions?: Direction // Display settings for Button and Image on card
+  badge?: BadgeProps // Add a Badge
+  center?: boolean // Center the Card content
+  bgColor?: Colors // Set the Card color
+  isGlass?: boolean // Set the Card to be glass
+}
+
 const Card = (props: CardProps) => {
-  let bgColor = props.bgColor ? `btn-${props.bgColor}` : ""
-  const shape = props.shape ? `btn-${props.shape}` : ""
-  const utilClass = props.utilClass ? `${props.utilClass}` : ""
-  const isLoading = props.isLoading ? "loading" : ""
-  const isActive = props.isActive ? "btn-active" : ""
-  const isDisabled = props.isDisabled ? "btn-disabled" : ""
-  const disabledAnimation = props.disabledAnimation ? "no-animation" : ""
-  const isOutlined = props.isOutlined ? "btn-outline" : ""
-  const isGlass = props.isGlass ? "glass" : ""
-  const isWide = props.isWide ? "btn-wide" : ""
-  const width = props.width ? `w-${props.width}` : ""
-  const size = props.size ? `btn-${props.size}` : ""
-  const btnSize = props.width ? width : props.size ? size : ""
-  let responsive = ""
-  switch (size) {
-    case "xs":
-      responsive = "sm:w-1/3 md:w-1/6 lg:w-1/8 xl:w-1/10"
-      break
-    case "sm":
-      responsive = "sm:w-1/2 md:w-1/3 lg:1/4 xl:w-1/5"
-      break
-    case "lg":
-      responsive = "sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
-      break
-    default:
-      responsive = "sm:btn-sm md:btn-md lg:btn-lg"
-      break
-  }
-  const classes = `${disabledAnimation} ${
-    props.iconStart || props.iconEnd ? "gap-2" : ""
-  } ${shape} ${isLoading} ${isActive} ${isOutlined} ${isGlass} ${isWide} ${bgColor} ${isDisabled} ${btnSize} ${utilClass} ${responsive}`.replace(
-    /\s\s/g,
-    " "
+  const background = props.bgColor ? backgrounds(props.bgColor) : "bg-base-100"
+
+  const classes = ReplaceSpaces(
+    `card ${props.compactMode ? "card-compact" : ""} ${background} shadow-xl ${
+      props.img?.overlay ? "image-full" : ""
+    } ${props.isGlass ? "glass" : ""} ${
+      props.directions?.imageSide ? "lg:card-side" : ""
+    }`
+  )
+  const bodyClasses = ReplaceSpaces(
+    `card-body ${props.center ? "items-center text-center" : ""}`
   )
 
+  const paddings = props.img?.padding ? PaddingClasses(props.img?.padding) : ""
+
+  const image = () => {
+    if (props.img) {
+      return (
+        <figure className={paddings}>
+          <img
+            src={props.img?.url}
+            alt={props.img?.alt ? props.img?.alt : "Image"}
+            className={props.img?.padding ? "rounded-xl" : ""}
+          />
+        </figure>
+      )
+    }
+  }
+
+  const buttons = () => {
+    if (props.buttons) {
+      return (
+        <div className="card-actions justify-end">
+          {props.buttons.map((button, index) => (
+            <Button {...button} key={index} />
+          ))}
+        </div>
+      )
+    } else {
+      return <></>
+    }
+  }
+
   return (
-    <button
-      className={`btn ${classes}`}
-      onClick={props.onClick}
-      tabIndex={props.tabIndex ? props.tabIndex : 0}
-    >
-      {props.iconStart}
-      {props.label ? props.label : "X"}
-      {props.iconEnd}
-    </button>
+    <div className={classes}>
+      {!props.directions?.imageBottom ? image() : <></>}
+      <div className={bodyClasses}>
+        {props.directions?.buttonTop ? buttons() : <></>}
+        <h2 className="card-title">
+          {props.title}
+          {props.badge ? <Badge {...props.badge} /> : <></>}
+        </h2>
+        <p>{props.subtitle}</p>
+        {!props.directions?.buttonTop ? buttons() : <></>}
+      </div>
+      {props.directions?.imageBottom ? image() : <></>}
+    </div>
   )
 }
 

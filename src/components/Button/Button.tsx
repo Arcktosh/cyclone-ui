@@ -1,20 +1,11 @@
 import "./Button.css"
 import ReplaceSpaces from "../../scripts/replaceSpaces"
+import { Colors, ResponsiveSizes, Shapes, Sizes } from "../../static"
+
 export interface ButtonProps {
   label?: string
-  bgColor?:
-    | "primary"
-    | "secondary"
-    | "success"
-    | "danger"
-    | "warning"
-    | "info"
-    | "light"
-    | "dark"
-    | "accent"
-    | "ghost"
-    | "link"
-  shape?: "square" | "circle" | "block"
+  bgColor?: Colors
+  shape?: Shapes
   isOutlined?: boolean
   isLoading?: boolean
   disabledAnimation?: boolean
@@ -23,7 +14,7 @@ export interface ButtonProps {
   isGlass?: boolean
   isWide?: boolean
   width?: number
-  size?: "xs" | "sm" | "lg"
+  size?: Sizes
   utilClass?: string
   iconStart?: string //SVG
   iconEnd?: string //SVG
@@ -44,21 +35,7 @@ const Button = (props: ButtonProps) => {
   const width = props.width ? `w-${props.width}` : ""
   const size = props.size ? `btn-${props.size}` : ""
   const btnSize = props.width ? width : props.size ? size : ""
-  let responsive = ""
-  switch (size) {
-    case "xs":
-      responsive = "sm:w-1/3 md:w-1/6 lg:w-1/8 xl:w-1/10"
-      break
-    case "sm":
-      responsive = "sm:w-1/2 md:w-1/3 lg:1/4 xl:w-1/5"
-      break
-    case "lg":
-      responsive = "sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
-      break
-    default:
-      responsive = "sm:btn-sm md:btn-md lg:btn-lg"
-      break
-  }
+  let responsive = props.size ? ResponsiveSizes(props.size) : ""
   const classes = ReplaceSpaces(
     `btn ${disabledAnimation} ${
       props.iconStart || props.iconEnd ? "gap-2" : ""

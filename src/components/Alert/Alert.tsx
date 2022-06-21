@@ -1,3 +1,4 @@
+import { Colors } from "../../static"
 import {
   ErrorIcon,
   InfoIcon,
@@ -5,12 +6,13 @@ import {
   WarningIcon,
 } from "../SvgIcons/SvgIcons"
 import "./Alert.css"
+
 export interface AlertProps {
   title?: string
   description?: string
-  bgColor?: "info" | "success" | "warning" | "error"
+  bgColor?: Colors
   iconOn?: boolean
-  svgIcon?: string
+  svgIcon?: React.ReactNode
   children?: React.ReactNode
 }
 const Alert = (props: AlertProps) => {
