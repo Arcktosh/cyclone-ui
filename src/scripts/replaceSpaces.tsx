@@ -1,4 +1,3 @@
-const ReplaceSpaces = (string: string) => {
+export const ReplaceSpaces = (string: string) => {
   return string.trim().replace(/\s+/g, " ")
 }
-export default ReplaceSpaces

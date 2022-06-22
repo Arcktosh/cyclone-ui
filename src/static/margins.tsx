@@ -5,17 +5,22 @@ export type Margins = {
   bottom?: number
   left?: number
   right?: number
+  horizontal?: number
+  vertical?: number
+  custom?: string
 }
 
 export const MarginClasses = (margins: Margins) => {
   return `${
     margins
       ? ReplaceSpaces(
-          `${margins.top ? `pt-${margins.top}` : ""} ${
-            margins.bottom ? `pb-${margins.bottom}` : ""
-          } ${margins.left ? `pl-${margins.left}` : ""} ${
-            margins.right ? `pr-${margins.right}` : ""
-          }`
+          `${margins.top ? `mt-${margins.top}` : ""} ${
+            margins.bottom ? `mb-${margins.bottom}` : ""
+          } ${margins.left ? `ml-${margins.left}` : ""} ${
+            margins.right ? `mr-${margins.right}` : ""
+          } ${margins.horizontal ? `mx-${margins.horizontal}` : ""} ${
+            margins.vertical ? `my-${margins.vertical}` : ""
+          } ${margins.custom ? margins.custom : ""}`
         )
       : ""
   }`

@@ -7,6 +7,7 @@ export type Paddings = {
   right?: number
   horizontal?: number
   vertical?: number
+  custom?: string
 }
 
 export const PaddingClasses = (paddings: Paddings) => {
@@ -19,7 +20,7 @@ export const PaddingClasses = (paddings: Paddings) => {
             paddings.right ? `pr-${paddings.right}` : ""
           } ${paddings.horizontal ? `px-${paddings.horizontal}` : ""} ${
             paddings.vertical ? `py-${paddings.vertical}` : ""
-          }`
+          } ${paddings.custom ? paddings.custom : ""}`
         )
       : ""
   }`

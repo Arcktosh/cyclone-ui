@@ -1,10 +1,5 @@
 import { Colors } from "../../static"
-import {
-  ErrorIcon,
-  InfoIcon,
-  SuccessIcon,
-  WarningIcon,
-} from "../SvgIcons/SvgIcons"
+import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "../SvgIcons"
 import "./Alert.css"
 
 export interface AlertProps {

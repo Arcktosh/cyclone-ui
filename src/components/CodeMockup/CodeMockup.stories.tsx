@@ -8,15 +8,29 @@ export default {
 } as ComponentMeta<typeof CodeMockup>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof CodeMockup> = (args) => <CodeMockup {...args} />
+const Template: ComponentStory<typeof CodeMockup> = (args) => (
+  <CodeMockup {...args} />
+)
 
-export const HelloWorld = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-HelloWorld.args = {
-  label: "Hello world!",
+export const CodeWithLinePrefix = Template.bind({})
+CodeWithLinePrefix.args = {
+  code: [{ code: "npm i", prefix: "$", class: "text-info" }],
 }
 
-export const ClickMe = Template.bind({})
-ClickMe.args = {
-  label: "Click me!",
+export const MultiLine = Template.bind({})
+MultiLine.args = {
+  code: [
+    { code: "npm i", prefix: "$", class: "text-info" },
+    { code: "installing...", prefix: ">", class: "text-warning" },
+    { code: "Done!", prefix: ">", class: "text-success" },
+  ],
+}
+export const Colors = Template.bind({})
+Colors.args = {
+  code: [
+    { code: "npm i", prefix: "$", class: "text-info" },
+    { code: "installing...", prefix: ">", class: "text-warning" },
+    { code: "Done!", prefix: ">", class: "text-success" },
+  ],
+  bgColor: "primary",
 }

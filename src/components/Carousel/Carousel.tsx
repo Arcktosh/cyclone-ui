@@ -1,80 +1,96 @@
+import { ReplaceSpaces } from "../../scripts"
+import { backgrounds, Colors, Widths } from "../../static"
 import "./Carousel.css"
+
+type Image = {
+  url?: string
+  alt?: string
+}
+type Snaps = {
+  start?: boolean
+  center?: boolean
+  end?: boolean
+  fullWidth?: boolean
+  halfWidth?: boolean
+  fullBlead?: boolean
+}
+type Indicators = {
+  numbers?: boolean
+  arrows?: boolean
+}
 export interface CarouselProps {
-  label?: string
-  bgColor?:
-    | "primary"
-    | "secondary"
-    | "success"
-    | "danger"
-    | "warning"
-    | "info"
-    | "light"
-    | "dark"
-    | "accent"
-    | "ghost"
-    | "link"
-  shape?: "square" | "circle" | "block"
-  isOutlined?: boolean
-  isLoading?: boolean
-  disabledAnimation?: boolean
-  isActive?: boolean
-  isDisabled?: boolean
-  isGlass?: boolean
-  isWide?: boolean
-  width?: number
-  size?: "xs" | "sm" | "lg"
-  utilClass?: string
-  iconStart?: string //SVG
-  iconEnd?: string //SVG
-  tabIndex?: number
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
+  snapTo?: Snaps
+  width?: Widths
+  height?: Widths
+  images?: Image[]
+  vertical?: boolean
+  bgColor?: Colors
+  indicators?: Indicators
 }
 const Carousel = (props: CarouselProps) => {
-  let bgColor = props.bgColor ? `btn-${props.bgColor}` : ""
-  const shape = props.shape ? `btn-${props.shape}` : ""
-  const utilClass = props.utilClass ? `${props.utilClass}` : ""
-  const isLoading = props.isLoading ? "loading" : ""
-  const isActive = props.isActive ? "btn-active" : ""
-  const isDisabled = props.isDisabled ? "btn-disabled" : ""
-  const disabledAnimation = props.disabledAnimation ? "no-animation" : ""
-  const isOutlined = props.isOutlined ? "btn-outline" : ""
-  const isGlass = props.isGlass ? "glass" : ""
-  const isWide = props.isWide ? "btn-wide" : ""
   const width = props.width ? `w-${props.width}` : ""
-  const size = props.size ? `btn-${props.size}` : ""
-  const btnSize = props.width ? width : props.size ? size : ""
-  let responsive = ""
-  switch (size) {
-    case "xs":
-      responsive = "sm:w-1/3 md:w-1/6 lg:w-1/8 xl:w-1/10"
-      break
-    case "sm":
-      responsive = "sm:w-1/2 md:w-1/3 lg:1/4 xl:w-1/5"
-      break
-    case "lg":
-      responsive = "sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
-      break
-    default:
-      responsive = "sm:btn-sm md:btn-md lg:btn-lg"
-      break
-  }
-  const classes = `${disabledAnimation} ${
-    props.iconStart || props.iconEnd ? "gap-2" : ""
-  } ${shape} ${isLoading} ${isActive} ${isOutlined} ${isGlass} ${isWide} ${bgColor} ${isDisabled} ${btnSize} ${utilClass} ${responsive}`.replace(
-    /\s\s/g,
-    " "
-  )
+  const height = props.height ? `h-${props.height}` : ""
+  const vertical = props.vertical ? "carousel-vertical" : ""
+  const halfWidth = props.snapTo?.halfWidth ? "w-1/2" : ""
+  const fullBlead = props.snapTo?.fullBlead
+    ? "carousel-center max-w-md p-4 space-x-4"
+    : ""
+  const background = props.bgColor ? backgrounds(props.bgColor) : "bg-neutral"
 
+  const classes = ReplaceSpaces(
+    `carousel ${height} ${width} ${
+      props.snapTo?.center ? "carousel-center" : ""
+    } ${
+      props.snapTo?.end ? "carousel-end" : ""
+    } ${vertical} ${fullBlead} ${background} rounded-box`
+  )
+  const itemClasses = ReplaceSpaces(
+    `carousel-item ${props.snapTo?.fullWidth ? "w-full" : ""} ${
+      props.vertical ? "h-full" : ""
+    } ${halfWidth} ${props.indicators?.arrows ? "relative w-full" : ""}`
+  )
+  const imageClasses = ReplaceSpaces(
+    `${props.snapTo?.fullBlead ? "rounded-box" : ""} ${
+      props.snapTo?.halfWidth ? "w-full" : ""
+    } ${props.indicators?.arrows ? "w-full" : ""}`
+  )
   return (
-    <button
-      className={`btn ${classes}`}
-      onClick={props.onClick}
-      tabIndex={props.tabIndex ? props.tabIndex : 0}
-    >
-      {props.iconStart}
-      {props.label ? props.label : "X"}
-      {props.iconEnd}
-    </button>
+    <>
+      <div className={classes}>
+        {props.images?.map((image, index) => (
+          <div id={`item${index + 1}`} className={itemClasses} key={index}>
+            <img
+              src={image.url}
+              alt={image.alt ? image.alt : "Image"}
+              className={imageClasses}
+            />
+            {props.indicators?.arrows ? (
+              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href={`#item${index}`} className="btn btn-circle">
+                  ❮
+                </a>
+                <a href={`#item${index + 2}`} className="btn btn-circle">
+                  ❯
+                </a>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
+        ))}
+      </div>
+      {props.indicators?.numbers ? (
+        <div className="flex justify-center w-full py-2 gap-2">
+          {props.images?.map((image, index) => (
+            <a href={`#item${index + 1}`} className="btn btn-xs">
+              {index + 1}
+            </a>
+          ))}
+        </div>
+      ) : (
+        <></>
+      )}
+    </>
   )
 }
 

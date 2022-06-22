@@ -8,15 +8,28 @@ export default {
 } as ComponentMeta<typeof Checkbox>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Checkbox> = (args) => <Checkbox {...args} />
+const Template: ComponentStory<typeof Checkbox> = (args) => (
+  <Checkbox {...args} />
+)
 
-export const HelloWorld = Template.bind({})
+export const Base = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-HelloWorld.args = {
-  label: "Hello world!",
-}
+Base.args = {}
 
-export const ClickMe = Template.bind({})
-ClickMe.args = {
+export const CustomColor = Template.bind({})
+CustomColor.args = {
   label: "Click me!",
+  color: "secondary",
+}
+export const Size = Template.bind({})
+Size.args = {
+  label: "Click me!",
+  color: "secondary",
+  size: "xs",
+}
+export const Disabled = Template.bind({})
+Disabled.args = {
+  label: "Click me!",
+  color: "secondary",
+  disabled: true,
 }

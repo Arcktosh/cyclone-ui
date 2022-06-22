@@ -11,3 +11,5 @@ export { PaddingClasses } from "./paddings"
 
 export type { Margins } from "./margins"
 export { MarginClasses } from "./margins"
+
+export type { Widths } from "./widths"
