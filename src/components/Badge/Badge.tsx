@@ -1,5 +1,5 @@
 import "./Badge.css"
-import ReplaceSpaces from "../../scripts/replaceSpaces"
+import { ReplaceSpaces } from "../../scripts"
 
 type sizes = "xs" | "sm" | "md" | "lg"
 type color =

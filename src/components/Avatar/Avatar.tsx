@@ -1,5 +1,5 @@
 import "./Avatar.css"
-import ReplaceSpaces from "../../scripts/replaceSpaces"
+import { ReplaceSpaces } from "../../scripts"
 
 type presence = { online?: boolean }
 type shapes = "circle" | "hexagon" | "squircle" | "triangle"

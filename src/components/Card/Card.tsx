@@ -1,6 +1,6 @@
 import "./Card.css"
 import Button, { ButtonProps } from "../Button/Button"
-import ReplaceSpaces from "../../scripts/replaceSpaces"
+import { ReplaceSpaces } from "../../scripts"
 import Badge, { BadgeProps } from "../Badge/Badge"
 import { backgrounds, Colors, PaddingClasses, Paddings } from "../../static"
 

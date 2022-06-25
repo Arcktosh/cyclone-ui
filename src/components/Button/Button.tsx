@@ -1,5 +1,5 @@
 import "./Button.css"
-import ReplaceSpaces from "../../scripts/replaceSpaces"
+import { ReplaceSpaces } from "../../scripts"
 import { Colors, ResponsiveSizes, Shapes, Sizes } from "../../static"
 
 export interface ButtonProps {

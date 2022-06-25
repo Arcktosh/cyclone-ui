@@ -1,5 +1,5 @@
 import "./Breadcrumbs.css"
-import ReplaceSpaces from "../../scripts/replaceSpaces"
+import { ReplaceSpaces } from "../../scripts"
 
 type link = {
   url?: string
