@@ -1,17 +1,18 @@
+import { ReplaceSpaces } from "../../scripts"
 import "./Divider.css"
-export interface DividerProps {}
+export interface DividerProps {
+  isHorizontal?: boolean
+  text?: string
+  responsive?: boolean
+}
 const Divider = (props: DividerProps) => {
-  return (
-    <div className="flex flex-col w-full border-opacity-50">
-      <div className="grid h-20 card bg-base-300 rounded-box place-items-center">
-        content
-      </div>
-      <div className="divider">OR</div>
-      <div className="grid h-20 card bg-base-300 rounded-box place-items-center">
-        content
-      </div>
-    </div>
+  const classes = ReplaceSpaces(
+    `divider ${props.isHorizontal ? "divider-horizontal" : ""} ${
+      props.responsive ? "lg:divider-horizontal" : ""
+    }`
   )
+
+  return <div className={classes}>{props.text}</div>
 }
 
 export default Divider

@@ -1,3 +1,3 @@
 export const ReplaceSpaces = (string: string) => {
-  return string.trim().replace(/\s+/g, " ")
+  return string.replace(/\s+/g, " ").trim()
 }

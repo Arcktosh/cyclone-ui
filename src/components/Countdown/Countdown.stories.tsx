@@ -12,15 +12,20 @@ const Template: ComponentStory<typeof Countdown> = (args) => (
   <Countdown {...args} />
 )
 
-export const HelloWorld = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-HelloWorld.args = {
-  // start: new Date("2020-01-01"),
-  // end: new Date("2020-01-02"),
+function addDays(days: number) {
+  var result = new Date()
+  result.setDate(result.getDate() + days)
+  return result
 }
 
-export const ClickMe = Template.bind({})
-ClickMe.args = {
-  // start: new Date("2020-01-01"),
-  // end: new Date("2020-01-02"),
+export const Base = Template.bind({})
+Base.args = {
+  date: addDays(2),
+}
+
+export const Boxed = Template.bind({})
+Boxed.args = {
+  date: addDays(2),
+  boxed: true,
+  background: "primary",
 }

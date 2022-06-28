@@ -1,6 +1,7 @@
 import "./Dropdown.css"
 import Button from "../Button"
 import { useEffect, useState } from "react"
+import { Colors, Shapes, Sizes } from "../../static"
 
 export interface List {
   id: number
@@ -24,19 +25,8 @@ export interface DropdownProps {
   setValue?: () => void //set selected values from list
   isMultiSelect?: boolean
   //Button
-  bgColor?:
-    | "primary"
-    | "secondary"
-    | "success"
-    | "danger"
-    | "warning"
-    | "info"
-    | "light"
-    | "dark"
-    | "accent"
-    | "ghost"
-    | "link"
-  shape?: "square" | "circle" | "block"
+  bgColor?: Colors
+  shape?: Shapes
   isOutlined?: boolean
   isLoading?: boolean
   disabledAnimation?: boolean
@@ -45,7 +35,7 @@ export interface DropdownProps {
   isGlass?: boolean
   isWide?: boolean
   width?: number
-  size?: "xs" | "sm" | "lg"
+  size?: Sizes
   utilClass?: string
   iconStart?: string //SVG
   iconEnd?: string //SVG

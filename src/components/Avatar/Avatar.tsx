@@ -1,37 +1,27 @@
 import "./Avatar.css"
 import { ReplaceSpaces } from "../../scripts"
+import { Colors, Shapes, Widths } from "../../static"
 
 type presence = { online?: boolean }
-type shapes = "circle" | "hexagon" | "squircle" | "triangle"
 type rounded = "xl" | "full"
-type widths = "8" | "16" | "20" | "24" | "32"
 
 type groupedAvatars = {
   alt?: string
   url?: string
 }
 
-type ringColor =
-  | "primary"
-  | "secondary"
-  | "neutral"
-  | "base-100"
-  | "light"
-  | "dark"
-  | "accent"
-
 export interface AvatarProps {
   url?: string
   alt?: string
   rounded?: rounded
-  shape?: shapes
-  width?: widths
+  shape?: Shapes
+  width?: Widths
   grouped?: groupedAvatars[]
   groupedLimit?: number
   presence?: presence
   bgColor?: string
   textColor?: string
-  ringColor?: ringColor
+  ringColor?: Colors
 }
 const Avatar = (props: AvatarProps) => {
   const group = props.grouped ? props.grouped.slice(0, props.groupedLimit) : []
@@ -59,18 +49,7 @@ const Avatar = (props: AvatarProps) => {
       .reduce((response, word) => (response += word.slice(0, 1)), "")
   }
   const mask = () => {
-    switch (props.shape) {
-      case "squircle":
-        return "mask mask-squircle"
-      case "hexagon":
-        return "mask mask-hexagon"
-      case "triangle":
-        return "mask mask-triangle"
-      case "circle":
-        return "mask mask-circle"
-      default:
-        return ""
-    }
+    return props.shape ? `mask mask-${props.shape}` : ""
   }
   const hasPlaceholder = (url: string | undefined) => {
     return url ? "" : "placeholder"
