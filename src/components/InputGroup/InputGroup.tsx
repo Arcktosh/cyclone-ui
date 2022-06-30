@@ -1,19 +1,59 @@
+import React from "react"
+import { Sizes } from "../../static"
+import Button, { ButtonProps } from "../Button/Button"
 import "./InputGroup.css"
-export interface InputGroupProps {}
+
+type Label = {
+  direction?: "left" | "right"
+  text?: string
+}
+type Input = {
+  label?: Label[]
+  children?: React.ReactNode
+  vertical?: boolean
+  button?: ButtonProps
+}
+
+export interface InputGroupProps {
+  groupLabel?: string
+  input?: Input[]
+  size?: Sizes
+}
+
 const InputGroup = (props: InputGroupProps) => {
   return (
     <div className="form-control">
-      <label className="label">
-        <span className="label-text">Your Email</span>
-      </label>
-      <label className="input-group">
-        <span>Email</span>
-        <input
-          type="text"
-          placeholder="info@site.com"
-          className="input input-bordered"
-        />
-      </label>
+      {props.groupLabel ? (
+        <label className="label">
+          <span className="label-text">{props.groupLabel}</span>
+        </label>
+      ) : (
+        <></>
+      )}
+      {props.input?.map((input, index) => (
+        <label
+          className={`input-group ${
+            props.size ? `input-group-${props.size}` : ""
+          } ${input.vertical ? "input-group-vertical" : ""}`}
+        >
+          {input.label?.map((label) => {
+            return label.direction === "left" ? (
+              <span>{label.text}</span>
+            ) : (
+              <></>
+            )
+          })}
+          {input.children}
+          {input.label?.map((label) => {
+            return label.direction === "right" ? (
+              <span>{label.text}</span>
+            ) : (
+              <></>
+            )
+          })}
+          {input.button ? <Button {...input.button} /> : <></>}
+        </label>
+      ))}
     </div>
   )
 }
