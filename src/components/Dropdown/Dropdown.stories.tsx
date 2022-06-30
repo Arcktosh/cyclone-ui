@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
+import Card from "../Card"
 import Dropdown from "./Dropdown"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -18,7 +19,8 @@ HelloWorld.args = {
   label: "Hello world!",
 }
 
-export const ClickMe = Template.bind({})
-ClickMe.args = {
+export const WithChildren = Template.bind({})
+WithChildren.args = {
   label: "Click me!",
+  children: <Card title="Hey There" subtitle="Here is something else" />,
 }

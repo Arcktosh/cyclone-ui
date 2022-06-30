@@ -12,7 +12,7 @@ export interface CountdownProps {
   boxed?: boolean
   labelUnder?: boolean
   textSize?: Sizes
-  background?: Colors
+  bgColor?: Colors
 }
 
 const Countdown = (props: CountdownProps) => {
@@ -26,8 +26,8 @@ const Countdown = (props: CountdownProps) => {
   )
   const boxedClasses = ReplaceSpaces(
     `flex flex-col p-2 rounded-box text-neutral-content ${
-      props.background
-        ? `bg-${props.background} text-${props.background}-content`
+      props.bgColor
+        ? `bg-${props.bgColor} text-${props.bgColor}-content`
         : "bg-neutral text-neutral-content"
     }`
   )

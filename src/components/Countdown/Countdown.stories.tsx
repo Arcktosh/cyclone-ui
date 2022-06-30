@@ -27,5 +27,5 @@ export const Boxed = Template.bind({})
 Boxed.args = {
   date: addDays(2),
   boxed: true,
-  background: "primary",
+  bgColor: "primary",
 }

@@ -1,3 +1,5 @@
+import { ReplaceSpaces } from "../../scripts"
+import { Colors, Widths } from "../../static"
 import "./Drawer.css"
 
 type Navbar = {
@@ -14,6 +16,8 @@ export interface DrawerProps {
   navbar?: Navbar
   list?: List[]
   children?: React.ReactNode
+  bgColor?: Colors
+  sideWidth?: Widths
 }
 
 const Drawer = (props: DrawerProps) => {
@@ -26,6 +30,15 @@ const Drawer = (props: DrawerProps) => {
   ) : (
     <li>Sidebar Item 1</li>
   )
+  const classes = ReplaceSpaces(
+    `menu p-4 overflow-y-auto ${
+      props.sideWidth ? `w-${props.sideWidth}` : "w-80"
+    } ${
+      props.bgColor
+        ? `bg-${props.bgColor} text-${props.bgColor}-content`
+        : "bg-base-100 text-base-content"
+    }`
+  )
   return (
     <div className="drawer">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -37,9 +50,7 @@ const Drawer = (props: DrawerProps) => {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
-        <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
-          {List}
-        </ul>
+        <ul className={classes}>{List}</ul>
       </div>
     </div>
   )
