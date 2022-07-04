@@ -24,7 +24,7 @@ export interface CollapseProps {
 
 const Collapse = (props: CollapseProps) => {
   const focusColor = props.focusColor
-    ? `group-focus:bg-secondary group-focus:text-secondary-content collapse-focus-${props.focusColor}`
+    ? `peer-checked:bg-${props.focusColor} peer-checked:text-${props.focusColor}-content`
     : "collapse-focus"
   const bgColor = props.bgColor ? `border bg-${props.bgColor} rounded-box` : ""
   const icon = props.icon
@@ -38,7 +38,7 @@ const Collapse = (props: CollapseProps) => {
   const open = props.forceOpen ? "collapse-open" : ""
 
   const mainClasses = ReplaceSpaces(
-    `collapse ${icon} ${bgColor} ${open} ${props.focusColor ? "group" : ""}`
+    `collapse ${icon} ${bgColor} ${open} ${props.focusColor ? "group" : ""} `
   )
   const groupClasses = ReplaceSpaces(
     `collapse-title ${
@@ -47,7 +47,8 @@ const Collapse = (props: CollapseProps) => {
   )
 
   return (
-    <div tabIndex={0} className={mainClasses}>
+    <div className={mainClasses}>
+      <input type="checkbox" className="peer" />
       <div className={groupClasses}>{props.title}</div>
       <div className={`collapse-content ${focusColor}`}>
         <p>{props.content}</p>

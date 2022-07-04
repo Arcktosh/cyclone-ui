@@ -10,13 +10,18 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Kbd> = (args) => <Kbd {...args} />
 
-export const HelloWorld = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-HelloWorld.args = {
-  label: "Hello world!",
+export const BasicUsage = Template.bind({})
+BasicUsage.args = {
+  text: "Shift",
 }
-
-export const ClickMe = Template.bind({})
-ClickMe.args = {
-  label: "Click me!",
+export const SetSize = Template.bind({})
+SetSize.args = {
+  size: "lg",
+  text: "Shift",
+}
+export const AddClasses = Template.bind({})
+AddClasses.args = {
+  size: "lg",
+  text: "Shift",
+  classes: "bg-base-100",
 }

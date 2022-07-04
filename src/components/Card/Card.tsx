@@ -1,7 +1,7 @@
 import "./Card.css"
 import Button, { ButtonProps } from "../Button/Button"
-import { ReplaceSpaces } from "../../scripts"
 import Badge, { BadgeProps } from "../Badge/Badge"
+import { ReplaceSpaces } from "../../scripts"
 import { backgrounds, Colors, PaddingClasses, Paddings } from "../../static"
 
 type Image = {
@@ -39,9 +39,9 @@ const Card = (props: CardProps) => {
       props.directions?.imageSide ? "lg:card-side" : ""
     }`
   )
-  const bodyClasses = ReplaceSpaces(
-    `card-body ${props.center ? "items-center text-center" : ""}`
-  )
+  const bodyClasses = props.center
+    ? "card-body items-center text-center"
+    : "p-5"
 
   const paddings = props.img?.padding ? PaddingClasses(props.img?.padding) : ""
 

@@ -1,17 +1,78 @@
+import React, { ReactNode } from "react"
+import { ReplaceSpaces } from "../../scripts"
+import { Colors, Widths } from "../../static"
 import "./Menu.css"
-export interface MenuProps {}
+
+type Item = {
+  id?: number
+  value?: string
+  url?: string
+  icon?: React.ReactNode
+  isActive?: boolean
+  bordered?: boolean
+}
+type MenuStructure = {
+  title?: string
+  items?: Item[]
+  disabled?: boolean
+  children?: ReactNode
+}
+
+export interface MenuProps {
+  menu?: MenuStructure[]
+  bgColor?: Colors
+  width?: Widths
+  padding?: Widths
+  classes?: string
+  isRounded?: boolean
+  borderHover?: boolean
+  compact?: boolean
+  horizontal?: boolean
+  onlyIcon?: boolean
+}
 const Menu = (props: MenuProps) => {
+  const classes = ReplaceSpaces(
+    `menu ${
+      props.bgColor
+        ? `bg-${props.bgColor} text-${props.bgColor}-content`
+        : "bg-base-100"
+    } ${props.width ? `w-${props.width}` : ""} ${
+      props.classes ? props.classes : ""
+    } ${props.isRounded ? "rounded-box" : ""} ${
+      props.padding ? `p-${props.padding}` : ""
+    } ${props.compact ? "menu-compact" : ""} ${
+      props.horizontal ? "menu-horizontal" : ""
+    }`
+  )
   return (
-    <ul className="menu bg-base-100 w-56">
-      <li>
-        <a>Item 1</a>
-      </li>
-      <li>
-        <a>Item 2</a>
-      </li>
-      <li>
-        <a>Item 3</a>
-      </li>
+    <ul className={classes}>
+      {props.menu?.map((menu, i) => (
+        <>
+          {menu.title ? (
+            <li className="menu-title" key={i}>
+              <span>{menu.title}</span>
+            </li>
+          ) : (
+            <></>
+          )}
+          {menu.items?.map((item) => (
+            <li key={item.id}>
+              <a
+                href={item.url}
+                className={`${item.isActive ? "active" : ""} ${
+                  item.bordered ? "bordered" : ""
+                } ${props.borderHover ? "hover-bordered" : ""} ${
+                  menu.disabled ? "disabled" : ""
+                }`}
+              >
+                {item.icon}
+                {props.onlyIcon ? <></> : item.value}
+              </a>
+            </li>
+          ))}
+          {menu.children}
+        </>
+      ))}
     </ul>
   )
 }

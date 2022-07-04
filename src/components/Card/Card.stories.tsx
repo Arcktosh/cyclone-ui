@@ -77,12 +77,8 @@ CenteredContentPadding.args = {
   title: "Title",
   subtitle:
     "here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable.",
-  buttons: [{ label: "Click Me!" }], // Add a Button to the Card
-  // directions: { imageBottom: true }, // Display settings for Button and Image on card
-  // badge: { label: "New", color: "secondary" }, // Add a Badge
-  center: true, // Center the Card content
-  // ,bgColor?: Colors // Set the Card color
-  // ,isGlass?: boolean // Set the Card to be glass
+  buttons: [{ label: "Click Me!" }],
+  center: true,
 }
 export const ImageOverlay = Template.bind({})
 ImageOverlay.args = {

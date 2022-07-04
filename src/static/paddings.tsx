@@ -1,4 +1,4 @@
-import ReplaceSpaces from "../scripts/replaceSpaces"
+import { ReplaceSpaces } from "../scripts"
 
 export type Paddings = {
   top?: number
