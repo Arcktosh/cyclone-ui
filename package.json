@@ -52,6 +52,7 @@
     "craco": "^0.0.3",
     "daisyui": "^2.15.3",
     "postcss": "^8.4.14",
+    "qrcode.react": "^3.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
@@ -61,7 +62,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "tailwindcss": "^3.1.2",
     "tslib": "^2.4.0",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.3",
+    "vcard-creator": "^0.4.2"
   },
   "eslintConfig": {
     "extends": [
