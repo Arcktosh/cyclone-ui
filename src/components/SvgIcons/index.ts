@@ -1,8 +1,11 @@
+export { CartIcon } from "./SvgIcons"
 export {NotesIcon} from "./SvgIcons";
 export {LogTicketIcon} from "./SvgIcons";
 export {TicketIcon} from "./SvgIcons";
 export {NotificationIcon} from "./SvgIcons";
+export {SearchIcon} from "./SvgIcons";
 export {DashboardIcon} from "./SvgIcons";
+export {MenuIcon} from "./SvgIcons";
 export {BlogIcon} from "./SvgIcons";
 export {ProfileIcon} from "./SvgIcons";
 export {InMailIcon} from "./SvgIcons";

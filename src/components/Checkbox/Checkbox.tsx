@@ -1,7 +1,6 @@
 import { ReplaceSpaces } from "../../scripts"
 import { Colors, Sizes } from "../../static"
 import "./Checkbox.css"
-import { Disabled } from "./Checkbox.stories"
 
 export interface CheckboxProps {
   label?: string

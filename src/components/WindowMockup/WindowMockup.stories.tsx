@@ -12,13 +12,15 @@ const Template: ComponentStory<typeof WindowMockup> = (args) => (
   <WindowMockup {...args} />
 )
 
-export const HelloWorld = Template.bind({})
+export const Base = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-HelloWorld.args = {
-  label: "Hello world!",
+Base.args = {
+  children: <button className="btn">Click Me!</button>,
 }
-
-export const ClickMe = Template.bind({})
-ClickMe.args = {
-  label: "Click me!",
+export const CustomColors = Template.bind({})
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+CustomColors.args = {
+  children: "Hello world!",
+  bannerBgColor: "secondary",
+  contentBgColor: "accent",
 }

@@ -72,29 +72,37 @@ export const TicketIcon = (props: any) => {
 export const NotificationIcon = (props: any) => {
   return (
     <svg
-      id="prefix__Layer_1"
       xmlns="http://www.w3.org/2000/svg"
-      x={0}
-      y={0}
-      viewBox="0 0 32 32"
-      xmlSpace="preserve"
+      className={props.className || "h-5 w-5"}
+      fill={props.fill || "none"}
+      viewBox={props.viewBox || "0 0 25 25"}
+      stroke={props.stroke || "currentColor"}
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+      />
+    </svg>
+  )
+}
+export const SearchIcon = (props?: any) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      className={props.className || "h-5 w-5"}
+      fill={props.fill || "none"}
+      stroke={props.stroke || "currentColor"}
       {...props}
     >
-      <style>
-        {
-          ".prefix__st0{fill:none;stroke:currentColor;stroke-width:2;stroke-miterlimit:10}"
-        }
-      </style>
-      <g id="prefix__Icons_9_">
-        <path
-          className="prefix__st0"
-          d="M11.9 10.7H5.3c-1.5 0-2.6 1.3-2.6 2.6v5.4c0 1.5 1.3 2.6 2.6 2.6H12V10.7z"
-        />
-        <path
-          className="prefix__st0"
-          d="M25.4 4v1.3l-13.5 5.4v10.6l13.5 5.4V28h4V4zM10.7 21.3V28H7.9l-2.6-6.7m20.1-16v5.4m0 2.6V28"
-        />
-      </g>
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+      />
     </svg>
   )
 }
@@ -115,6 +123,25 @@ export const DashboardIcon = (props: any) => {
           fill="#ededee"
         />
       </g>
+    </svg>
+  )
+}
+export const MenuIcon = (props?: any) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={props.className || "h-5 w-5"}
+      fill={props.fill || "none"}
+      stroke={props.stroke || "currentColor"}
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h7"
+      />
     </svg>
   )
 }
@@ -580,6 +607,25 @@ export const TourismSubjIcon = (props: any) => {
       <path
         className="prefix__st0"
         d="M16.4 5.8c2.4 0 4.4 4.6 4.4 10.4s-2 10.4-4.4 10.4M26 20h-9.6m0-7.6H26m-9.6 14.1V5.8M6.7 23.7c.2-.2.2-.6 0-.8l-.5-.5c-.1-.1-.2-.4-.1-.5.1-.2.2-.3.4-.4 1-.2 2.7-.6 3.8-.9.3-.1.6 0 .8.2.2.2.3.5.2.8-.3 1.1-.6 2.8-.9 3.8 0 .2-.2.4-.4.4-.2.1-.4 0-.5-.1l-.5-.5c-.2-.2-.6-.2-.8 0l-.5.5c-.2.2-.6.2-.9 0l-.6-.6c-.2-.2-.2-.6 0-.9.2-.1.3-.3.5-.5z"
+      />
+    </svg>
+  )
+}
+export const CartIcon = (props: any) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={props.className || "h-5 w-5"}
+      fill={props.fill || "none"}
+      viewBox={props.viewBox || "0 0 24 24"}
+      stroke={props.stroke || "currentColor"}
+      {...props}
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
       />
     </svg>
   )

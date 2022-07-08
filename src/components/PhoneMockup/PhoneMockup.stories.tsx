@@ -8,15 +8,19 @@ export default {
 } as ComponentMeta<typeof PhoneMockup>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof PhoneMockup> = (args) => <PhoneMockup {...args} />
+const Template: ComponentStory<typeof PhoneMockup> = (args) => (
+  <PhoneMockup {...args} />
+)
 
-export const HelloWorld = Template.bind({})
+export const Base = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-HelloWorld.args = {
-  label: "Hello world!",
+Base.args = {
+  children: <button className="btn">Click Me!</button>,
 }
 
-export const ClickMe = Template.bind({})
-ClickMe.args = {
-  label: "Click me!",
+export const CustomColors = Template.bind({})
+CustomColors.args = {
+  children: "Hello world!",
+  bannerBgColor: "secondary",
+  contentBgColor: "accent",
 }
