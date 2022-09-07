@@ -11,12 +11,28 @@ export default {
 const Template: ComponentStory<typeof Tooltip> = (args) => <Tooltip {...args} />
 
 export const HelloWorld = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 HelloWorld.args = {
-  label: "Hello world!",
+  tip: "Hello World"
 }
 
-export const ClickMe = Template.bind({})
-ClickMe.args = {
-  label: "Click me!",
+export const Open = Template.bind({})
+Open.args = {
+  open: true,
+  tip: "Hello Open",
+};
+
+export const Direction = Template.bind({})
+Direction.args = {
+  direction: { right: true },
+  tip: "Hello Direction",
+};
+export const Color = Template.bind({})
+Color.args = {
+  color: "accent",
+}
+export const Children = Template.bind({})
+
+Children.args = {
+  tip: "Hello Children",
+  children: <button className="btn">Testing a child with a Tooltip</button>
 }

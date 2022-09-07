@@ -13,3 +13,5 @@ export type { Margins } from "./margins"
 export { MarginClasses } from "./margins"
 
 export type { Widths } from "./widths"
+
+export type { Directions } from "./directions";

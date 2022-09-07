@@ -1,10 +1,23 @@
+import { Sizes } from "../../static";
 import "./Tabs.css"
 
-export interface TabsProps {}
+type Tab = {
+  active?: boolean;
+  bordered?: boolean;
+  lifted?: boolean;
+  boxed?: boolean
+};
+
+export interface TabsProps {
+  tabs: Tab[]
+  size:Sizes
+  
+}
 
 const Tabs = (props: TabsProps) => {
   return (
     <div className="tabs">
+      { props.tabs}
       <a className="tab">Tab 1</a>
       <a className="tab tab-active">Tab 2</a>
       <a className="tab">Tab 3</a>
