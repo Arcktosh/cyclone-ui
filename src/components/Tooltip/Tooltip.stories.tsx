@@ -34,5 +34,5 @@ export const Children = Template.bind({})
 
 Children.args = {
   tip: "Hello Children",
-  children: <button className="btn">Testing a child with a Tooltip</button>
+  children: <a className="link">Testing a child with a Tooltip</a>
 }

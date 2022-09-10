@@ -1,28 +1,56 @@
+import { ReplaceSpaces } from "../../scripts";
 import { Sizes } from "../../static";
-import "./Tabs.css"
+import "./Tabs.css";
 
 type Tab = {
   active?: boolean;
-  bordered?: boolean;
-  lifted?: boolean;
-  boxed?: boolean
+  title?: string;
+  href?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 export interface TabsProps {
-  tabs: Tab[]
-  size:Sizes
-  
+  tabs: Tab[];
+  size: Sizes;
+  bordered?: boolean;
+  lifted?: boolean;
+  boxed?: boolean;
 }
 
 const Tabs = (props: TabsProps) => {
-  return (
-    <div className="tabs">
-      { props.tabs}
-      <a className="tab">Tab 1</a>
-      <a className="tab tab-active">Tab 2</a>
-      <a className="tab">Tab 3</a>
-    </div>
-  )
-}
+  const tabsClass = ReplaceSpaces(`tabs ${props.boxed ? "tabs-boxed " : ""}`);
+  const tabClasses = ReplaceSpaces(`tab ${props.bordered ? "tab-bordered " : ""} ${props.lifted ? "tab-lifted " : ""} ${props.size ? `tab-${props.size}` : ""}`)
 
-export default Tabs
+  console.log({ tabClasses, tabsClass });
+  return (
+    <div className={tabsClass}>
+      {props.tabs ? (
+        props.tabs.map((tab) =>
+          tab.href ? (
+            <a
+              className={`${tabClasses} ${tab.active ? "tab-active" : ""}`}
+              href={tab.href}
+            >
+              {tab.title}
+            </a>
+          ) : tab.onClick ? (
+            <button
+              className={`${tabClasses} ${tab.active ? "tab-active" : ""}`}
+              onClick={tab.onClick}
+            >
+              {tab.title}
+            </button>
+          ) : (
+            <a className={`${tabClasses} ${tab.active ? "tab-active" : ""}`}>
+              {tab.title}
+            </a>
+          )
+        )
+      ) : (
+        <a className="tab">Tab 1</a>
+      )}
+    </div>
+  );
+};
+
+export default Tabs;

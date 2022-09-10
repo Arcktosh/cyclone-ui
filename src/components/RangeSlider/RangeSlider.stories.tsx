@@ -10,13 +10,34 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof RangeSlider> = (args) => <RangeSlider {...args} />
 
-export const HelloWorld = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-HelloWorld.args = {
-  label: "Hello world!",
+export const Base = Template.bind({})
+Base.args = {
+  steps:1,
+  onChange: (e) => console.log(e.target.value),
 }
 
-export const ClickMe = Template.bind({})
-ClickMe.args = {
-  label: "Click me!",
-}
+export const Color = Template.bind({});
+Color.args = {
+  color: "primary",
+  onChange: (e) => console.log(e.target.value),
+};
+
+export const Size = Template.bind({});
+Size.args = {
+  size: "5xl",
+  steps: 1,
+  onChange: (e) => console.log(e.target.value),
+};
+
+export const StepsAndMeasure = Template.bind({})
+StepsAndMeasure.args = {
+  children: (
+    <div className="w-full flex justify-between text-xs px-2">
+      <span>|</span>
+      <span>|</span>
+      <span>|</span>
+      <span>|</span>
+      <span>|</span>
+    </div>
+  ),
+};

@@ -36,6 +36,7 @@ const Button = (props: ButtonProps) => {
   const size = props.size ? `btn-${props.size}` : ""
   const btnSize = props.width ? width : props.size ? size : ""
   let responsive = props.size ? ResponsiveSizes(props.size) : ""
+  
   const classes = ReplaceSpaces(
     `btn ${disabledAnimation} ${
       props.iconStart || props.iconEnd ? "gap-2" : ""

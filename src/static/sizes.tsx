@@ -8,6 +8,7 @@ export type Sizes =
   | "4xl"
   | "5xl"
   | "6xl"
+  | "9xl"
 
 export const ResponsiveSizes = (size: Sizes) => {
   switch (size) {
