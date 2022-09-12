@@ -1,4 +1,4 @@
-export { CartIcon } from "./SvgIcons"
+export {CartIcon } from "./SvgIcons"
 export {NotesIcon} from "./SvgIcons";
 export {LogTicketIcon} from "./SvgIcons";
 export {TicketIcon} from "./SvgIcons";
@@ -36,4 +36,5 @@ export {InfoIcon} from "./SvgIcons";
 export {SuccessIcon} from "./SvgIcons";
 export {WarningIcon} from "./SvgIcons";
 export {ErrorIcon} from "./SvgIcons";
-export {QuestionIcon} from "./SvgIcons";
+export { QuestionIcon } from "./SvgIcons";
+export { HomeIcon } from "./SvgIcons";

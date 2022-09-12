@@ -10,13 +10,43 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof TextInput> = (args) => <TextInput {...args} />
 
-export const HelloWorld = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-HelloWorld.args = {
-  label: "Hello world!",
+export const Base = Template.bind({})
+Base.args = {
+  placeholder: "Type Here!",
+  onChange:(e)=>console.log({e})
 }
-
-export const ClickMe = Template.bind({})
-ClickMe.args = {
-  label: "Click me!",
-}
+export const Bordered = Template.bind({});
+Bordered.args = {
+  placeholder: "Type Here!",
+  border:true
+};
+export const NoBackground = Template.bind({});
+NoBackground.args = {
+  placeholder: "Type Here!",
+  color:"ghost"
+};
+export const Labels = Template.bind({});
+Labels.args = {
+  placeholder: "Type Here!",
+  border:true,
+  label: "What's your name?",
+  altLabelTR: "Alt Label Top Right",
+  altLabelBL: "Alt Label Bottom Left",
+  altLabelBR: "Alt Label Bottom Right",
+};
+export const PrimaryColor = Template.bind({});
+PrimaryColor.args = {
+  placeholder: "Type Here!",
+  color:"primary"
+};
+export const Size = Template.bind({});
+Size.args = {
+  placeholder: "Type Here!",
+  size: "lg",
+  border: true,
+};
+export const Disabled = Template.bind({});
+Disabled.args = {
+  placeholder: "Type Here!",
+  disabled:true
+};

@@ -1,3 +1,4 @@
+import {useRef} from "react"
 import { ReplaceSpaces } from "../../scripts"
 import { Colors, Widths } from "../../static"
 import "./Drawer.css"
@@ -7,24 +8,27 @@ type Navbar = {
   side?: boolean
 }
 type List = {
-  link?: string
-  label?: string
-}
+  link?: string;
+  label?: string;
+  icon?: React.ReactNode| string;
+};
 export interface DrawerProps {
   label?: string
   mobile?: boolean
+  right?: boolean
   navbar?: Navbar
   list?: List[]
   children?: React.ReactNode
   bgColor?: Colors
   sideWidth?: Widths
+
 }
 
 const Drawer = (props: DrawerProps) => {
   const List = props.list ? (
     props.list.map((item) => (
       <li>
-        <a href={item.link}>{item.label}</a>
+        <a href={item.link}>{ item.icon}{item.label}</a>
       </li>
     ))
   ) : (
@@ -39,21 +43,22 @@ const Drawer = (props: DrawerProps) => {
         : "bg-base-100 text-base-content"
     }`
   )
+  const reference = useRef(0);
   return (
-    <div className="drawer">
-      <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+    <div className={`drawer${props.right ? " drawer-end" : ""}`}>
+      <input id={reference} type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
-        <label htmlFor="my-drawer" className="btn btn-primary drawer-button">
+        <label htmlFor={reference} className="btn btn-primary drawer-button">
           {props.label}
         </label>
         {props.children}
       </div>
       <div className="drawer-side">
-        <label htmlFor="my-drawer" className="drawer-overlay"></label>
+        <label htmlFor={reference} className="drawer-overlay"></label>
         <ul className={classes}>{List}</ul>
       </div>
     </div>
-  )
+  );
 }
 
 export default Drawer
