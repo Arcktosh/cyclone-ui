@@ -20,7 +20,11 @@
   "bugs": {
     "url": "https://github.com/Arcktosh/cyclone-ui/issues"
   },
-  "author": "Ben Henning <benhenning10@gmail.com>",
+  "author": {
+    "name": "Ben Henning",
+    "email": "benhenning10@gmail.com",
+    "url": "https://github.com/Arcktosh"
+  },
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.18.5",

@@ -1,6 +1,7 @@
-import { ReplaceSpaces } from "../../scripts"
-import { Colors } from "../../static"
-import "./Collapse.css"
+import { CSSProperties } from 'react'
+import { Colors } from '../../static'
+import { ReplaceSpaces } from '../../scripts'
+import './Collapse.css'
 
 type Icon = {
   arrow?: boolean
@@ -20,37 +21,44 @@ export interface CollapseProps {
   bgColor?: Colors
   focusColor?: Colors
   font?: Font
+  style?: CSSProperties
+  contentStyle?: CSSProperties
 }
 
 const Collapse = (props: CollapseProps) => {
   const focusColor = props.focusColor
     ? `peer-checked:bg-${props.focusColor} peer-checked:text-${props.focusColor}-content`
-    : "collapse-focus"
-  const bgColor = props.bgColor ? `border bg-${props.bgColor} rounded-box` : ""
+    : 'collapse-focus'
+  const bgColor = props.bgColor
+    ? `border bg-${props.bgColor} text-${props.bgColor}-content rounded-box`
+    : ''
   const icon = props.icon
     ? props.icon.plus
-      ? "collapse-plus"
+      ? 'collapse-plus'
       : props.icon.arrow
-      ? "collapse-arrow"
-      : ""
-    : ""
+      ? 'collapse-arrow'
+      : ''
+    : ''
 
-  const open = props.forceOpen ? "collapse-open" : ""
+  const open = props.forceOpen ? 'collapse-open' : ''
 
   const mainClasses = ReplaceSpaces(
-    `collapse ${icon} ${bgColor} ${open} ${props.focusColor ? "group" : ""} `
+    `collapse ${icon} ${bgColor} ${open} ${props.focusColor ? 'group' : ''} `
   )
   const groupClasses = ReplaceSpaces(
     `collapse-title ${
-      props.font?.textSize ? props.font?.textSize : "text-xl"
-    } ${props.font?.font ? props.font?.font : "font-medium"} ${focusColor}`
+      props.font?.textSize ? props.font?.textSize : 'text-xl'
+    } ${props.font?.font ? props.font?.font : 'font-medium'} ${focusColor}`
   )
 
   return (
-    <div className={mainClasses}>
-      <input type="checkbox" className="peer" />
+    <div className={mainClasses} style={props.style}>
+      <input type='checkbox' className='peer' />
       <div className={groupClasses}>{props.title}</div>
-      <div className={`collapse-content ${focusColor}`}>
+      <div
+        className={`collapse-content ${focusColor}`}
+        style={props.contentStyle}
+      >
         <p>{props.content}</p>
       </div>
     </div>

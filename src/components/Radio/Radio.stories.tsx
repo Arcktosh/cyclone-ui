@@ -1,13 +1,11 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-import Radio from "./Radio"
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import Radio from './Radio'
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Components/DataInput/Radio",
+  title: 'Components/DataInput/Radio',
   component: Radio,
 } as ComponentMeta<typeof Radio>
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Radio> = (args) => <Radio {...args} />
 
 export const Base = Template.bind({})
@@ -18,8 +16,8 @@ Base.args = {
 export const Color = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Color.args = {
-  color: "secondary",
-  checkedColor: "accent",
+  color: 'secondary',
+  checkedColor: 'accent',
 }
 export const Disabled = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -29,8 +27,8 @@ Disabled.args = {
 
 export const WithLabel = Template.bind({})
 WithLabel.args = {
-  label: "Click me!",
-  name: "radio-1",
+  label: 'Click me!',
+  name: 'radio-1',
   checked: true,
-  color: "secondary",
+  color: 'secondary',
 }

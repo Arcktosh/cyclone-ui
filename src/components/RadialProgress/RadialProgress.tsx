@@ -1,6 +1,7 @@
-import { ReplaceSpaces } from "../../scripts"
-import { Colors, Widths } from "../../static"
-import "./RadialProgress.css"
+import { CSSProperties } from 'react'
+import { Colors, Widths } from '../../static'
+import { ReplaceSpaces } from '../../scripts'
+import './RadialProgress.css'
 
 export interface RadialProgressProps {
   border?: Widths
@@ -11,6 +12,8 @@ export interface RadialProgressProps {
   label?: string
   size?: string
   thickness?: string
+  classes?: string
+  style?: CSSProperties
 }
 
 const RadialProgress = (props: RadialProgressProps) => {
@@ -20,27 +23,29 @@ const RadialProgress = (props: RadialProgressProps) => {
   let textColor =
     props.bgColor || props.color
       ? `text-${props.bgColor || props.color}-content`
-      : ""
+      : ''
 
   const counter = {
-    "--value": percentage,
-    "--size": props.size,
-    "--thickness": props.thickness,
-  } as React.CSSProperties
+    '--value': percentage,
+    '--size': props.size,
+    '--thickness': props.thickness,
+  } as CSSProperties
 
   const classes = ReplaceSpaces(
     `radial-progress ${
-      props.bgColor ? `bg-${props.bgColor}` : ""
+      props.bgColor ? `bg-${props.bgColor}` : ''
     } ${textColor} ${
       props.border
         ? `border-${props.border} border-${props.bgColor || props.color}`
-        : ""
-    }`
+        : ''
+    } ${props.classes}`
   )
 
   return (
-    <div className={classes} style={counter}>
-      {props.label ? props.label : `${percentage.toFixed(1)} %`}
+    <div style={props.style}>
+      <div className={classes} style={counter}>
+        {props.label ? props.label : `${percentage.toFixed(1)} %`}
+      </div>
     </div>
   )
 }

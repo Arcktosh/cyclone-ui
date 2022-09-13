@@ -1,6 +1,7 @@
-import { ReplaceSpaces } from "../../scripts"
-import { Colors, Widths } from "../../static"
-import "./Progress.css"
+import { CSSProperties } from 'react'
+import { ReplaceSpaces } from '../../scripts'
+import { Colors, Widths } from '../../static'
+import './Progress.css'
 
 export interface ProgressProps {
   width?: Widths
@@ -8,6 +9,8 @@ export interface ProgressProps {
   value?: number
   max?: number
   indeterminate?: boolean
+  style?: CSSProperties
+  classes?: string
 }
 
 const Progress = (props: ProgressProps) => {
@@ -18,11 +21,18 @@ const Progress = (props: ProgressProps) => {
     ? undefined
     : Math.floor(Math.random() * 100 + 1)
   const className = ReplaceSpaces(
-    `progress ${props.color ? `progress-${props.color}` : ""} ${
-      props.width ? `w-${props.width}` : "w-56"
-    } `
+    `progress ${props.color ? `progress-${props.color}` : ''} ${
+      props.width ? `w-${props.width}` : 'w-56'
+    } ${props.classes}`
   )
-  return <progress className={className} value={value} max={max}></progress>
+  return (
+    <progress
+      className={className}
+      value={value}
+      max={max}
+      style={props.style}
+    ></progress>
+  )
 }
 
 export default Progress

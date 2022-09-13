@@ -1,14 +1,12 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-import { HomeIcon, InfoIcon } from "../SvgIcons"
-import Menu from "./Menu"
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { HomeIcon, InfoIcon } from '../SvgIcons'
+import Menu from './Menu'
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Components/Navigation/Menu",
+  title: 'Components/Navigation/Menu',
   component: Menu,
 } as ComponentMeta<typeof Menu>
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Menu> = (args) => <Menu {...args} />
 
 export const Base = Template.bind({})
@@ -16,9 +14,9 @@ Base.args = {
   menu: [
     {
       items: [
-        { value: "Item 1", url: "/" },
-        { value: "Item 2", url: "/" },
-        { value: "Item 3", url: "/" },
+        { value: 'Item 1', url: '/' },
+        { value: 'Item 2', url: '/' },
+        { value: 'Item 3', url: '/' },
       ],
     },
   ],
@@ -29,9 +27,9 @@ WithActiveItem.args = {
   menu: [
     {
       items: [
-        { value: "Item 1", url: "/" },
-        { value: "Item 2", url: "/", isActive: true },
-        { value: "Item 3", url: "/" },
+        { value: 'Item 1', url: '/' },
+        { value: 'Item 2', url: '/', isActive: true },
+        { value: 'Item 3', url: '/' },
       ],
     },
   ],
@@ -42,9 +40,9 @@ RoundedCorners.args = {
   menu: [
     {
       items: [
-        { value: "Item 1", url: "/" },
-        { value: "Item 2", url: "/" },
-        { value: "Item 3", url: "/" },
+        { value: 'Item 1', url: '/' },
+        { value: 'Item 2', url: '/' },
+        { value: 'Item 3', url: '/' },
       ],
     },
   ],
@@ -56,9 +54,9 @@ Compact.args = {
   menu: [
     {
       items: [
-        { value: "Item 1", url: "/" },
-        { value: "Item 2", url: "/" },
-        { value: "Item 3", url: "/" },
+        { value: 'Item 1', url: '/' },
+        { value: 'Item 2', url: '/' },
+        { value: 'Item 3', url: '/' },
       ],
     },
   ],
@@ -70,9 +68,9 @@ Horizontal.args = {
   menu: [
     {
       items: [
-        { value: "Item 1", url: "/" },
-        { value: "Item 2", url: "/" },
-        { value: "Item 3", url: "/" },
+        { value: 'Item 1', url: '/' },
+        { value: 'Item 2', url: '/' },
+        { value: 'Item 3', url: '/' },
       ],
     },
   ],
@@ -83,9 +81,9 @@ WithBorder.args = {
   menu: [
     {
       items: [
-        { value: "Item 1", url: "/" },
-        { value: "Has a Border", url: "/", bordered: true },
-        { value: "Item 3", url: "/" },
+        { value: 'Item 1', url: '/' },
+        { value: 'Has a Border', url: '/', bordered: true },
+        { value: 'Item 3', url: '/' },
       ],
     },
   ],
@@ -97,22 +95,20 @@ WithIcons.args = {
     {
       items: [
         {
-          value: "Item 1",
-          url: "/",
+          value: 'Item 1',
+          url: '/',
           icon: <InfoIcon />,
         },
         {
-          value: "Has a Border",
-          url: "/",
-          icon: (
-            <HomeIcon/>
-          ),
+          value: 'Has a Border',
+          url: '/',
+          icon: <HomeIcon />,
         },
-        { value: "Item 3", url: "/", icon: "💩" },
+        { value: 'Item 3', url: '/', icon: '💩' },
       ],
     },
   ],
-};
+}
 export const OnlyIcons = Template.bind({})
 OnlyIcons.args = {
   isRounded: true,
@@ -121,20 +117,16 @@ OnlyIcons.args = {
     {
       items: [
         {
-          value: "Item 1",
-          url: "/",
-          icon: (
-             <InfoIcon />
-          ),
+          value: 'Item 1',
+          url: '/',
+          icon: <InfoIcon />,
         },
         {
-          value: "Has a Border",
-          url: "/",
-          icon: (
-            <HomeIcon/>
-          ),
+          value: 'Has a Border',
+          url: '/',
+          icon: <HomeIcon />,
         },
-        { value: "Item 3", url: "/", icon: "💩" },
+        { value: 'Item 3', url: '/', icon: '💩' },
       ],
     },
   ],
@@ -144,19 +136,19 @@ WithTitle.args = {
   isRounded: true,
   menu: [
     {
-      title: "Category 1",
+      title: 'Category 1',
       items: [
-        { value: "Item 1", url: "/" },
-        { value: "Item 2", url: "/" },
-        { value: "Item 3", url: "/" },
+        { value: 'Item 1', url: '/' },
+        { value: 'Item 2', url: '/' },
+        { value: 'Item 3', url: '/' },
       ],
     },
     {
-      title: "Category 2",
+      title: 'Category 2',
       items: [
-        { value: "Item 1", url: "/" },
-        { value: "Item 2", url: "/" },
-        { value: "Item 3", url: "/" },
+        { value: 'Item 1', url: '/' },
+        { value: 'Item 2', url: '/' },
+        { value: 'Item 3', url: '/' },
       ],
     },
   ],
@@ -166,26 +158,26 @@ SubMenu.args = {
   isRounded: true,
   menu: [
     {
-      title: "Category 1",
+      title: 'Category 1',
       submenu: [
-        { value: "Item 1", url: "/" },
-        { value: "Item 2", url: "/" },
-        { value: "Item 3", url: "/" },
+        { value: 'Item 1', url: '/' },
+        { value: 'Item 2', url: '/' },
+        { value: 'Item 3', url: '/' },
       ],
     },
     {
-      title: "Category 2",
+      title: 'Category 2',
       submenu: [
-        { value: "Item 1", url: "/" },
-        { value: "Item 2", url: "/" },
-        { value: "Item 3", url: "/" },
+        { value: 'Item 1', url: '/' },
+        { value: 'Item 2', url: '/' },
+        { value: 'Item 3', url: '/' },
       ],
     },
     {
       items: [
-        { value: "Item 1", url: "/" },
-        { value: "Item 2", url: "/" },
-        { value: "Item 3", url: "/" },
+        { value: 'Item 1', url: '/' },
+        { value: 'Item 2', url: '/' },
+        { value: 'Item 3', url: '/' },
       ],
     },
   ],

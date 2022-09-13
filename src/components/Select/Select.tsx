@@ -1,57 +1,63 @@
-import { useEffect, useState } from "react";
-import { ReplaceSpaces } from "../../scripts";
-import { Colors, Sizes } from "../../static";
-import "./Select.css";
+import { CSSProperties, useEffect, useState } from 'react'
+import { ReplaceSpaces } from '../../scripts'
+import { Colors, Sizes } from '../../static'
+import './Select.css'
 
 type List = {
-  value?: string | number;
-  label?: string;
-};
+  value?: string | number
+  label?: string
+}
 
 export interface SelectProps {
-  label?: string;
-  altLabelTR?: string;
-  altLabelBL?: string;
-  altLabelBR?: string;
-  defaultSelect?: string;
-  options?: List[];
-  value?: string;
-  border?: boolean;
-  disabled?: boolean;
-  color?: Colors;
-  size?: Sizes;
-  onChange?: (a: string | number) => void;
+  label?: string
+  altLabelTR?: string
+  altLabelBL?: string
+  altLabelBR?: string
+  defaultSelect?: string
+  options?: List[]
+  value?: string
+  border?: boolean
+  disabled?: boolean
+  color?: Colors
+  size?: Sizes
+  onChange?: (a: string | number) => void
+  classes?: string
+  style?: CSSProperties
 }
 
 const Select = (props: SelectProps) => {
-  const [value, setValue] = useState<string|number>(null);
+  const [value, setValue] = useState<string | number>(0)
 
   useEffect(() => {
-    setValue(props.value);
-  }, [props.value]);
+    if (props.value) {
+      setValue(props.value)
+    }
+  }, [props.value])
 
   const SetSelect = (value: string | number) => {
-    setValue(value);
-    props.onChange ? props.onChange(value) : <></>;
-  };
+    setValue(value)
+    if (props.onChange) {
+      props.onChange(value)
+    }
+  }
 
   const classes = ReplaceSpaces(
-    `select ${props.border ? "select-bordered" : ""} ${
-      props.color ? `select-${props.color}` : ""
-    } ${props.size ? `select-${props.size}` : ""}`
-  );
+    `select ${props.border ? 'select-bordered' : ''} ${
+      props.color ? `select-${props.color}` : ''
+    } ${props.size ? `select-${props.size}` : ''} ${props.classes}`
+  )
 
   return (
-    <div className="form-control w-full max-w-xs">
+    <div className='form-control w-full max-w-xs'>
       {props.label || props.altLabelTR ? (
-        <label className="label">
+        <label className='label'>
           {props.label ? (
-            <span className="label-text">{props.label}</span>
+            <span className='label-text'>{props.label}</span>
           ) : (
             <></>
           )}
           {props.altLabelTR ? (
-            <span className="label-text-alt">{props.altLabelTR}</span>
+            <span className='label-text-alt'>{props.altLabelTR}</span>
           ) : (
             <></>
           )}
@@ -63,8 +69,9 @@ const Select = (props: SelectProps) => {
         className={classes}
         disabled={props.disabled}
         onChange={(e) => SetSelect(e.target.value)}
-        value={value ? value : null}
-        defaultValue={value ? value : null}
+        value={value}
+        defaultValue={value}
+        style={props.style}
       >
         {props.defaultSelect ? (
           <option disabled selected>
@@ -74,20 +81,20 @@ const Select = (props: SelectProps) => {
           <></>
         )}
         {props.options?.map((item, i) => (
-          <option key={i} value={item.value}>
+          <option key={item.value || 'ItemValue' + i} value={item.value}>
             {item.label}
           </option>
         ))}
       </select>
       {props.altLabelBL || props.altLabelBR ? (
-        <label className="label">
+        <label className='label'>
           {props.altLabelBL ? (
-            <span className="label-text-alt">{props.altLabelBL}</span>
+            <span className='label-text-alt'>{props.altLabelBL}</span>
           ) : (
             <></>
           )}
           {props.altLabelBR ? (
-            <span className="label-text-alt">{props.altLabelBR}</span>
+            <span className='label-text-alt'>{props.altLabelBR}</span>
           ) : (
             <></>
           )}
@@ -96,7 +103,7 @@ const Select = (props: SelectProps) => {
         <></>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Select;
+export default Select

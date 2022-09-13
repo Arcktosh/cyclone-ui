@@ -1,13 +1,15 @@
-import { ReplaceSpaces } from "../../scripts"
-import { Colors, Widths } from "../../static"
-import "./Dropdown.css"
+import { CSSProperties, ReactNode } from 'react'
+import { ReplaceSpaces } from '../../scripts'
+import { Colors, Widths } from '../../static'
+import './Dropdown.css'
 
 type List = {
   id: number
   value: string | number
   href?: string
 }
-type Direction = "left" | "right" | "top" | "end"
+
+type Direction = 'left' | 'right' | 'top' | 'end'
 
 export interface DropdownProps {
   label?: string
@@ -18,7 +20,11 @@ export interface DropdownProps {
   bgColor?: Colors
   isHover?: boolean
   forceOpen?: boolean
-  children?: React.ReactNode
+  children?: ReactNode
+  dropdownClasses?: string
+  listClasses?: string
+  listStyle?: CSSProperties
+  dropdownStyle?: CSSProperties
 }
 
 const Dropdown = (props: DropdownProps) => {
@@ -44,26 +50,28 @@ const Dropdown = (props: DropdownProps) => {
   )
 
   const listClasses = ReplaceSpaces(
-    `dropdown-content ${props.children ? "" : "menu p-2 shadow"} ${
+    `dropdown-content ${props.children ? '' : 'menu p-2 shadow'} ${
       props.bgColor
         ? `bg-${props.bgColor} text-${props.bgColor}-content`
-        : "bg-base-100 text-base-content"
-    } rounded-box ${props.width ? `w-${props.width}` : "w-52"}`
+        : 'bg-base-100 text-base-content'
+    } rounded-box ${props.width ? `w-${props.width}` : 'w-52'} ${
+      props.listClasses
+    }`
   )
   const dropdownClasses = ReplaceSpaces(
-    `dropdown ${props.dropdown ? `dropdown-${props.dropdown}` : ""} ${
-      props.align ? `dropdown-${props.dropdown}` : ""
-    } ${props.isHover ? "dropdown-hover" : ""} ${
-      props.forceOpen ? "dropdown-open" : ""
-    }`
+    `dropdown ${props.dropdown ? `dropdown-${props.dropdown}` : ''} ${
+      props.align ? `dropdown-${props.dropdown}` : ''
+    } ${props.isHover ? 'dropdown-hover' : ''} ${
+      props.forceOpen ? 'dropdown-open' : ''
+    } ${props.dropdownClasses}`
   )
 
   return (
-    <div className={dropdownClasses}>
-      <label tabIndex={0} className="btn m-1">
-        {props.label ? props.label : "Dropdown"}
+    <div className={dropdownClasses} style={props.dropdownStyle}>
+      <label tabIndex={0} className='btn m-1'>
+        {props.label ? props.label : 'Dropdown'}
       </label>
-      <ul tabIndex={0} className={listClasses}>
+      <ul tabIndex={0} className={listClasses} style={props.listStyle}>
         {props.children ? props.children : list}
       </ul>
     </div>

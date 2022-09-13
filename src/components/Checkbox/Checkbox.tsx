@@ -1,43 +1,45 @@
-import { ReplaceSpaces } from "../../scripts"
-import { Colors, Sizes } from "../../static"
-import "./Checkbox.css"
+import { ChangeEvent, CSSProperties } from 'react'
+import { Colors, Sizes } from '../../static'
+import { ReplaceSpaces } from '../../scripts'
+import './Checkbox.css'
 
 export interface CheckboxProps {
   label?: string
   checked?: boolean
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   color?: Colors
   size?: Sizes
   disabled?: boolean
+  style?: CSSProperties
 }
 
 const Checkbox = (props: CheckboxProps) => {
-  const color = props.color ? `checkbox-${props.color}` : ""
-  const size = props.size ? `checkbox-${props.size}` : ""
-  const disabled = props.disabled ? "cursor-not-allowed" : "cursor-pointer"
+  const color = props.color ? `checkbox-${props.color}` : ''
+  const size = props.size ? `checkbox-${props.size}` : ''
+  const disabled = props.disabled ? 'cursor-not-allowed' : 'cursor-pointer'
+
   const checkClasses = ReplaceSpaces(`checkbox ${color} ${size} ${disabled}`)
 
+  const checkboxInput = (
+    <input
+      type='checkbox'
+      checked={props.checked}
+      className={checkClasses}
+      onChange={props.onChange}
+      disabled={props.disabled}
+      style={props.style}
+    />
+  )
+
   return (
-    <div className="form-control">
+    <div className='form-control'>
       {props.label ? (
         <label className={`label ${disabled}`}>
-          <span className="label-text">{props.label}</span>
-          <input
-            type="checkbox"
-            checked={props.checked}
-            className={checkClasses}
-            onChange={props.onChange}
-            disabled={props.disabled}
-          />
+          <span className='label-text'>{props.label}</span>
+          {checkboxInput}
         </label>
       ) : (
-        <input
-          type="checkbox"
-          checked={props.checked}
-          className={checkClasses}
-          onChange={props.onChange}
-          disabled={props.disabled}
-        />
+        checkboxInput
       )}
     </div>
   )

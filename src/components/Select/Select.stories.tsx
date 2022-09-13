@@ -1,78 +1,75 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-import Select from "./Select"
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import Select from './Select'
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Components/DataInput/Select",
+  title: 'Components/DataInput/Select',
   component: Select,
 } as ComponentMeta<typeof Select>
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />
 
 export const Base = Template.bind({})
 Base.args = {
-  label: "Hello world!",
-  defaultSelect: "Select an option",
+  label: 'Hello world!',
+  defaultSelect: 'Select an option',
   options: [
-    { value: 1, label: "Apple" },
-    { value: 2, label: "Orange" },
-    { value: 3, label: "Tomato" },
+    { value: 1, label: 'Apple' },
+    { value: 2, label: 'Orange' },
+    { value: 3, label: 'Tomato' },
   ],
-  onChange:(e:any)=>console.log(e)
-};
+  onChange: (e: any) => console.log(e),
+}
 
-export const WithBorder = Template.bind({});
+export const WithBorder = Template.bind({})
 WithBorder.args = {
-  label: "Hello world!",
-  defaultSelect: "Select an option",
-  border:true,
+  label: 'Hello world!',
+  defaultSelect: 'Select an option',
+  border: true,
   options: [
-    { value: 1, label: "Apple" },
-    { value: 2, label: "Orange" },
-    { value: 3, label: "Tomato" },
+    { value: 1, label: 'Apple' },
+    { value: 2, label: 'Orange' },
+    { value: 3, label: 'Tomato' },
   ],
-};
+}
 
-export const NoBackground = Template.bind({});
+export const NoBackground = Template.bind({})
 NoBackground.args = {
-  label: "Hello world!",
-  defaultSelect: "Select an option",
-  color: "ghost",
+  label: 'Hello world!',
+  defaultSelect: 'Select an option',
+  color: 'ghost',
   options: [
-    { value: 1, label: "Apple" },
-    { value: 2, label: "Orange" },
-    { value: 3, label: "Tomato" },
+    { value: 1, label: 'Apple' },
+    { value: 2, label: 'Orange' },
+    { value: 3, label: 'Tomato' },
   ],
-};
+}
 
-export const PrimaryColor = Template.bind({});
+export const PrimaryColor = Template.bind({})
 PrimaryColor.args = {
-  label: "Hello world!",
-  defaultSelect: "Select an option",
-  color:"primary",
+  label: 'Hello world!',
+  defaultSelect: 'Select an option',
+  color: 'primary',
   options: [
-    { value: 1, label: "Apple" },
-    { value: 2, label: "Orange" },
-    { value: 3, label: "Tomato" },
+    { value: 1, label: 'Apple' },
+    { value: 2, label: 'Orange' },
+    { value: 3, label: 'Tomato' },
   ],
-};
+}
 
-export const Size = Template.bind({});
+export const Size = Template.bind({})
 Size.args = {
-  label: "Hello world!",
-  size:"lg",
-  defaultSelect: "Select an option",
+  label: 'Hello world!',
+  size: 'lg',
+  defaultSelect: 'Select an option',
   options: [
-    { value: 1, label: "Apple" },
-    { value: 2, label: "Orange" },
-    { value: 3, label: "Tomato" },
+    { value: 1, label: 'Apple' },
+    { value: 2, label: 'Orange' },
+    { value: 3, label: 'Tomato' },
   ],
-  
-};
+}
 
 export const Disabled = Template.bind({})
 Disabled.args = {
-  defaultSelect:"This option has been disabled",
-  disabled:true
+  defaultSelect: 'This option has been disabled',
+  disabled: true,
 }

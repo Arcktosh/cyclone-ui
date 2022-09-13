@@ -1,19 +1,34 @@
-import "./Stack.css"
+import { CSSProperties, ReactNode } from 'react'
+import { Colors, Widths } from '../../static'
+import './Stack.css'
 
-export interface StackProps {}
+export interface StackProps {
+  stack: ReactNode
+  width?: Widths
+  height?: Widths
+  classes?: string
+  style?: CSSProperties
+  color?: Colors
+}
 
 const Stack = (props: StackProps) => {
   return (
-    <div>
-      <div className="grid w-32 h-20 rounded bg-primary text-primary-content place-content-center">
-        1
-      </div>
-      <div className="grid w-32 h-20 rounded bg-accent text-accent-content place-content-center">
-        2
-      </div>
-      <div className="grid w-32 h-20 rounded bg-secondary text-secondary-content place-content-center">
-        3
-      </div>
+    <div className='stack'>
+      {props.stack.map((item, i) => (
+        <div
+          key={i}
+          className={`grid ${props.width ? `w-${props.width}` : 'w-32'} ${
+            props.height ? `h-${props.height}` : 'h-20'
+          } rounded ${
+            props.color
+              ? `bg-${props.color} text-${props.color}-content`
+              : 'bg-primary text-primary-content'
+          } place-content-center ${props.classes}`}
+          style={props.style}
+        >
+          {item}
+        </div>
+      ))}
     </div>
   )
 }

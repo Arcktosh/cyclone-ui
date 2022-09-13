@@ -1,8 +1,9 @@
-import "./Card.css"
-import Button, { ButtonProps } from "../Button/Button"
-import Badge, { BadgeProps } from "../Badge/Badge"
-import { ReplaceSpaces } from "../../scripts"
-import { backgrounds, Colors, PaddingClasses, Paddings } from "../../static"
+import './Card.css'
+import Button, { ButtonProps } from '../Button/Button'
+import Badge, { BadgeProps } from '../Badge/Badge'
+import { ReplaceSpaces } from '../../scripts'
+import { backgrounds, Colors, PaddingClasses, Paddings } from '../../static'
+import { CSSProperties } from 'react'
 
 type Image = {
   url?: string
@@ -27,23 +28,28 @@ export interface CardProps {
   center?: boolean // Center the Card content
   bgColor?: Colors // Set the Card color
   isGlass?: boolean // Set the Card to be glass
+  style?: CSSProperties
+  bodyStyle?: CSSProperties
+  bodyClasses?: string
 }
 
 const Card = (props: CardProps) => {
-  const background = props.bgColor ? backgrounds(props.bgColor) : "bg-base-100"
+  const background = props.bgColor ? backgrounds(props.bgColor) : 'bg-base-100'
+  const bodyClasses = props.center
+    ? 'card-body items-center text-center'
+    : props.bodyClasses
+    ? props.bodyClasses
+    : 'p-5'
 
   const classes = ReplaceSpaces(
-    `card ${props.compactMode ? "card-compact" : ""} ${background} shadow-xl ${
-      props.img?.overlay ? "image-full" : ""
-    } ${props.isGlass ? "glass" : ""} ${
-      props.directions?.imageSide ? "lg:card-side" : ""
+    `card ${props.compactMode ? 'card-compact' : ''} ${background} shadow-xl ${
+      props.img?.overlay ? 'image-full' : ''
+    } ${props.isGlass ? 'glass' : ''} ${
+      props.directions?.imageSide ? 'lg:card-side' : ''
     }`
   )
-  const bodyClasses = props.center
-    ? "card-body items-center text-center"
-    : "p-5"
 
-  const paddings = props.img?.padding ? PaddingClasses(props.img?.padding) : ""
+  const paddings = props.img?.padding ? PaddingClasses(props.img?.padding) : ''
 
   const image = () => {
     if (props.img) {
@@ -51,8 +57,8 @@ const Card = (props: CardProps) => {
         <figure className={paddings}>
           <img
             src={props.img?.url}
-            alt={props.img?.alt ? props.img?.alt : "Image"}
-            className={props.img?.padding ? "rounded-xl" : ""}
+            alt={props.img?.alt ? props.img?.alt : 'Image'}
+            className={props.img?.padding ? 'rounded-xl' : ''}
           />
         </figure>
       )
@@ -62,7 +68,7 @@ const Card = (props: CardProps) => {
   const buttons = () => {
     if (props.buttons) {
       return (
-        <div className="card-actions justify-end">
+        <div className='card-actions justify-end'>
           {props.buttons.map((button, index) => (
             <Button {...button} key={index} />
           ))}
@@ -74,11 +80,11 @@ const Card = (props: CardProps) => {
   }
 
   return (
-    <div className={classes}>
+    <div className={classes} style={props.style}>
       {!props.directions?.imageBottom ? image() : <></>}
-      <div className={bodyClasses}>
+      <div className={bodyClasses} style={props.bodyStyle}>
         {props.directions?.buttonTop ? buttons() : <></>}
-        <h2 className="card-title">
+        <h2 className='card-title'>
           {props.title}
           {props.badge ? <Badge {...props.badge} /> : <></>}
         </h2>

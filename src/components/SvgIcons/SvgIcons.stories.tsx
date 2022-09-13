@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { IconGallery, IconItem } from '@storybook/addon-docs/'
 import {
   CartIcon,
@@ -41,139 +41,137 @@ import {
   ErrorIcon,
   QuestionIcon,
   HomeIcon,
-} from "./SvgIcons";
+} from './SvgIcons'
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Components/SvgIcons",
+  title: 'Components/SvgIcons',
   component: CartIcon,
-} as ComponentMeta<typeof CartIcon>;
+} as ComponentMeta<typeof CartIcon>
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof CartIcon> = (args) => (
   <IconGallery {...args}>
-    <IconItem name="CartIcon">
-      <CartIcon name="CartIcon" />
+    <IconItem name='CartIcon'>
+      <CartIcon name='CartIcon' />
     </IconItem>
-    <IconItem name="NotesIcon">
-      <NotesIcon name="NotesIcon" />
+    <IconItem name='NotesIcon'>
+      <NotesIcon name='NotesIcon' />
     </IconItem>
-    <IconItem name="LogTicketIcon">
+    <IconItem name='LogTicketIcon'>
       <LogTicketIcon />
     </IconItem>
-    <IconItem name="TicketIcon">
+    <IconItem name='TicketIcon'>
       <TicketIcon />
     </IconItem>
-    <IconItem name="NotificationIcon">
+    <IconItem name='NotificationIcon'>
       <NotificationIcon />
     </IconItem>
-    <IconItem name="SearchIcon">
+    <IconItem name='SearchIcon'>
       <SearchIcon />
     </IconItem>
-    <IconItem name="DashboardIcon">
+    <IconItem name='DashboardIcon'>
       <DashboardIcon />
     </IconItem>
-    <IconItem name="MenuIcon">
+    <IconItem name='MenuIcon'>
       <MenuIcon />
     </IconItem>
-    <IconItem name="BlogIcon">
+    <IconItem name='BlogIcon'>
       <BlogIcon />
     </IconItem>
-    <IconItem name="ProfileIcon">
+    <IconItem name='ProfileIcon'>
       <ProfileIcon />
     </IconItem>
-    <IconItem name="InMailIcon">
+    <IconItem name='InMailIcon'>
       <InMailIcon />
     </IconItem>
-    <IconItem name="LessonIcon">
+    <IconItem name='LessonIcon'>
       <LessonIcon />
     </IconItem>
-    <IconItem name="MainNotesIcon">
+    <IconItem name='MainNotesIcon'>
       <MainNotesIcon />
     </IconItem>
-    <IconItem name="KnowledgeBaseIcon">
+    <IconItem name='KnowledgeBaseIcon'>
       <KnowledgeBaseIcon />
     </IconItem>
-    <IconItem name="AccSubjIcon">
+    <IconItem name='AccSubjIcon'>
       <AccSubjIcon />
     </IconItem>
-    <IconItem name="BusStudSubjIcon">
+    <IconItem name='BusStudSubjIcon'>
       <BusStudSubjIcon />
     </IconItem>
-    <IconItem name="EconSubjIcon">
+    <IconItem name='EconSubjIcon'>
       <EconSubjIcon />
     </IconItem>
-    <IconItem name="EngFALSubjIcon">
+    <IconItem name='EngFALSubjIcon'>
       <EngFALSubjIcon />
     </IconItem>
-    <IconItem name="EngHLSubjIcon">
+    <IconItem name='EngHLSubjIcon'>
       <EngHLSubjIcon />
     </IconItem>
-    <IconItem name="GeoSubjIcon">
+    <IconItem name='GeoSubjIcon'>
       <GeoSubjIcon />
     </IconItem>
-    <IconItem name="LifeSciSubjIcon">
+    <IconItem name='LifeSciSubjIcon'>
       <LifeSciSubjIcon />
     </IconItem>
-    <IconItem name="MathSubjIcon">
+    <IconItem name='MathSubjIcon'>
       <MathSubjIcon />
     </IconItem>
-    <IconItem name="MathLitSubjIcon">
+    <IconItem name='MathLitSubjIcon'>
       <MathLitSubjIcon />
     </IconItem>
-    <IconItem name="PhySciSubjIcon">
+    <IconItem name='PhySciSubjIcon'>
       <PhySciSubjIcon />
     </IconItem>
-    <IconItem name="TourismSubjIcon">
+    <IconItem name='TourismSubjIcon'>
       <TourismSubjIcon />
     </IconItem>
-    <IconItem name="NavBellIcon">
+    <IconItem name='NavBellIcon'>
       <NavBellIcon />
     </IconItem>
-    <IconItem name="NavEventsIcon">
+    <IconItem name='NavEventsIcon'>
       <NavEventsIcon />
     </IconItem>
-    <IconItem name="NavOptionsIcon">
+    <IconItem name='NavOptionsIcon'>
       <NavOptionsIcon />
     </IconItem>
-    <IconItem name="ModalCloseIcon">
+    <IconItem name='ModalCloseIcon'>
       <ModalCloseIcon />
     </IconItem>
-    <IconItem name="ApplicationsIcon">
+    <IconItem name='ApplicationsIcon'>
       <ApplicationsIcon />
     </IconItem>
-    <IconItem name="PullLeftIcon">
+    <IconItem name='PullLeftIcon'>
       <PullLeftIcon />
     </IconItem>
-    <IconItem name="PullRightIcon">
+    <IconItem name='PullRightIcon'>
       <PullRightIcon />
     </IconItem>
-    <IconItem name="LessonBullet">
+    <IconItem name='LessonBullet'>
       <LessonBullet />
     </IconItem>
-    <IconItem name="BursaryIcon">
+    <IconItem name='BursaryIcon'>
       <BursaryIcon />
     </IconItem>
-    <IconItem name="InfoIcon">
+    <IconItem name='InfoIcon'>
       <InfoIcon />
     </IconItem>
-    <IconItem name="SuccessIcon">
+    <IconItem name='SuccessIcon'>
       <SuccessIcon />
     </IconItem>
-    <IconItem name="WarningIcon">
+    <IconItem name='WarningIcon'>
       <WarningIcon />
     </IconItem>
-    <IconItem name="ErrorIcon">
+    <IconItem name='ErrorIcon'>
       <ErrorIcon />
     </IconItem>
-    <IconItem name="QuestionIcon">
+    <IconItem name='QuestionIcon'>
       <QuestionIcon />
     </IconItem>
-    <IconItem name="HomeIcon">
+    <IconItem name='HomeIcon'>
       <HomeIcon />
     </IconItem>
   </IconGallery>
-);
+)
 
-export const HelloWorld = Template.bind({}) 
-HelloWorld.args = {};
+export const HelloWorld = Template.bind({})
+HelloWorld.args = {}

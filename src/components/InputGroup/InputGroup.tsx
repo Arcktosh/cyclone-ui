@@ -1,15 +1,16 @@
-import React from "react"
-import { Sizes } from "../../static"
-import Button, { ButtonProps } from "../Button/Button"
-import "./InputGroup.css"
+import { ReactNode } from 'react'
+import { Sizes } from '../../static'
+import Button, { ButtonProps } from '../Button/Button'
+import './InputGroup.css'
 
 type Label = {
-  direction?: "left" | "right"
+  direction?: 'left' | 'right'
   text?: string
 }
+
 type Input = {
   label?: Label[]
-  children?: React.ReactNode
+  children?: ReactNode
   vertical?: boolean
   button?: ButtonProps
 }
@@ -22,10 +23,10 @@ export interface InputGroupProps {
 
 const InputGroup = (props: InputGroupProps) => {
   return (
-    <div className="form-control">
+    <div className='form-control'>
       {props.groupLabel ? (
-        <label className="label">
-          <span className="label-text">{props.groupLabel}</span>
+        <label className='label'>
+          <span className='label-text'>{props.groupLabel}</span>
         </label>
       ) : (
         <></>
@@ -33,11 +34,12 @@ const InputGroup = (props: InputGroupProps) => {
       {props.input?.map((input, index) => (
         <label
           className={`input-group ${
-            props.size ? `input-group-${props.size}` : ""
-          } ${input.vertical ? "input-group-vertical" : ""}`}
+            props.size ? `input-group-${props.size}` : ''
+          } ${input.vertical ? 'input-group-vertical' : ''}`}
+          key={'input-group' + index}
         >
           {input.label?.map((label) => {
-            return label.direction === "left" ? (
+            return label.direction === 'left' ? (
               <span>{label.text}</span>
             ) : (
               <></>
@@ -45,7 +47,7 @@ const InputGroup = (props: InputGroupProps) => {
           })}
           {input.children}
           {input.label?.map((label) => {
-            return label.direction === "right" ? (
+            return label.direction === 'right' ? (
               <span>{label.text}</span>
             ) : (
               <></>
