@@ -1,7 +1,7 @@
 {
   "name": "cyclone-ui",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Responsive React Typescript Tailwind Component library",
   "scripts": {
     "rollup": "rollup -c",
@@ -93,5 +93,17 @@
   },
   "resolutions": {
     "webpack": "^5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

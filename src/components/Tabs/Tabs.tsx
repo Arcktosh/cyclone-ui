@@ -46,13 +46,18 @@ const Tabs = (props: TabsProps) => {
               {tab.title}
             </button>
           ) : (
-            <a className={`${tabClasses} ${tab.active ? 'tab-active' : ''}`}>
+            <a
+              className={`${tabClasses} ${tab.active ? 'tab-active' : ''}`}
+              href='/'
+            >
               {tab.title}
             </a>
           )
         )
       ) : (
-        <a className='tab'>Tab 1</a>
+        <a className='tab' href='/'>
+          Tab 1
+        </a>
       )}
     </div>
   )
