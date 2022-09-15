@@ -1,65 +1,52 @@
-name: "Build, Publish, Deploy"
+name: Node.js Package
 
 on:
-  push:
-    branches:
-      - master
+  release:
+    types: [created]
 
 jobs:
-  release:
-    name: "Build"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: npm test
+
+  publish-npm:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.2
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.8.0
-          registry-url: https://registry.npmjs.org
-
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - name: check latest released version
         id: check
         uses: EndBug/version-check@v2.1.0
         with:
-          file-url: https://unpkg.com/daisyui@latest/package.json
+          file-url: https://unpkg.com/cyclone@latest/package.json
           static-checking: localIsNew
-
       - name: Install dependencies
         if: steps.check.outputs.changed == 'true'
         run: npm install
-
       - name: build
         if: steps.check.outputs.changed == 'true'
         run: npm run build
-
       - name: Publish
         if: steps.check.outputs.changed == 'true'
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-      - name: Read package version from package.json
-        if: steps.check.outputs.changed == 'true'
-        uses: nyaa8/package-version@v1
-        with:
-          path: "package.json"
-
-      - name: update package version in env
-        if: steps.check.outputs.changed == 'true'
-        uses: SpicyPizza/create-envfile@v1
-        with:
-          envkey_VITE_DAISYUI_VERSION: ${{ env.PACKAGE_VERSION }}
-          file_name: src/docs/.env
-
-      - name: update package version in readme
-        if: steps.check.outputs.changed == 'true'
-        uses: mingjun97/file-regex-replace@v1
-        with:
-          regex: 'cdn.jsdelivr.net\/npm\/daisyui@.*\/dist\/'
-          replacement: "cdn.jsdelivr.net/npm/daisyui@${{ env.PACKAGE_VERSION }}/dist/"
-          include: "README.md"
 
       - name: Commit files
         if: steps.check.outputs.changed == 'true'
@@ -80,22 +67,3 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Wait 10 seconds for npm publish
-        if: steps.check.outputs.changed == 'true'
-        uses: whatnick/wait-action@master
-        with:
-          time: "10s"
-
-      - name: Install document website dependencies
-        run: cd src/docs && npm install
-
-      - name: Build document website
-        run: cd src/docs && npm run build
-
-      - name: Deploy docs to github pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./src/docs/build
-          cname: ${{ secrets.CNAME }}
