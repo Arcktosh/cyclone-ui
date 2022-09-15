@@ -24,11 +24,3 @@ WithDivs.args = {
     </>
   ),
 }
-export const WithImages = Template.bind({})
-WithImages.args = {
-  label: 'Hello world!',
-}
-export const WithCards = Template.bind({})
-WithCards.args = {
-  label: 'Hello world!',
-}

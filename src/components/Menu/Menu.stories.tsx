@@ -159,7 +159,7 @@ SubMenu.args = {
   menu: [
     {
       title: 'Category 1',
-      submenu: [
+      items: [
         { value: 'Item 1', url: '/' },
         { value: 'Item 2', url: '/' },
         { value: 'Item 3', url: '/' },
@@ -167,7 +167,7 @@ SubMenu.args = {
     },
     {
       title: 'Category 2',
-      submenu: [
+      items: [
         { value: 'Item 1', url: '/' },
         { value: 'Item 2', url: '/' },
         { value: 'Item 3', url: '/' },

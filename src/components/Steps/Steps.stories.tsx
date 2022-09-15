@@ -79,7 +79,3 @@ Vertical.args = {
     },
   ],
 }
-export const Horizontal = Template.bind({})
-Horizontal.args = {
-  horizontal: true,
-}

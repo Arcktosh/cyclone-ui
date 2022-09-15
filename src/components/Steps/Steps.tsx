@@ -22,7 +22,7 @@ const Steps = (props: StepsProps) => {
   )
 
   return (
-    <div class='overflow-x-auto'>
+    <div className='overflow-x-auto'>
       <ul className={classes}>
         {props?.steps ? (
           props?.steps.map((step) => (
@@ -31,9 +31,8 @@ const Steps = (props: StepsProps) => {
               className={`step ${step.color ? `step-${step.color}` : ''} ${
                 step.onClick ? 'hover:cursor-pointer' : ''
               }`}
-              onClick={step.onClick}
             >
-              {step.title}
+              <button onClick={step.onClick}>{step.title}</button>
             </li>
           ))
         ) : (

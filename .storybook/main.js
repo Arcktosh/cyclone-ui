@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -7,6 +7,7 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@storybook/preset-create-react-app',
     {
       /**
        * Fix Storybook issue with PostCSS@8
@@ -22,6 +23,7 @@ module.exports = {
   ],
   core: {
     builder: 'webpack5',
+    disableTelemetry: true, // 👈 Disables telemetry
   },
   webpackFinal: (config) => {
     /**
@@ -31,7 +33,7 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve?.alias,
       '@': [path.resolve(__dirname, '../src/'), path.resolve(__dirname, '../')],
-    };
+    }
 
     /**
      * Fixes font import with /
@@ -40,8 +42,23 @@ module.exports = {
     config.resolve.roots = [
       path.resolve(__dirname, '../public'),
       'node_modules',
-    ];
+    ]
 
-    return config;
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+      include: path.resolve(__dirname, '../'),
+    })
+
+    config.module.rules.push({
+      test: /\.(ts|tsx)$/,
+      loader: require.resolve('babel-loader'),
+      options: {
+        presets: [['react-app', { flow: false, typescript: true }]],
+      },
+    })
+    config.resolve.extensions.push('.ts', '.tsx')
+
+    return config
   },
-};
+}
