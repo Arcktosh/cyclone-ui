@@ -8,20 +8,18 @@
 
 # cyclone-ui 1.0
 
-[![][build]][build-url] [![][npm]][npm-url] [![][number-of-components]][docs-url] [![][license]][license-url]  
+[![][npm]][npm-url] [][number-of-components] [![][license]][license-url]  
 [![][dl]][npm-url] [![][stars]][gh-url] [![][commit]][gh-url]
 
 
-## 🌼 Features
+## ⭐ Features
 
-- A plugin for Tailwind CSS
+- A component library built with <a href="https://tailwindcss.com/">Tailwind CSS</a> and <a href="https://daisyui.com/">DaisyUI</a>
 - Faster development
 - Cleaner HTML
-- Customizable and themeable
-- Pure CSS. Works on all frameworks
+- Easy Customizabl
 
-
-## 📀 Install now!
+## ⚡ Install now!
 
 ```bash
 npm i cyclone-ui
@@ -29,7 +27,9 @@ npm i cyclone-ui
 
 ## 🚀 Use
 
-[[See all components →](https://github.com/Arcktosh/cyclone-ui/src/components/)]
+[[See all components →](https://cyclone-ui.vercel.app/)]
+or
+`git clone https://github.com/Arcktosh/cyclone-ui.git cyclone-ui` Storybook has been added for ease of testing and preview purposes
 
 ## 🤝 Support cyclone-ui
 
@@ -60,14 +60,13 @@ Tweet about cyclone-ui: [![][tweet]][tweet-url]
   - [x] Chat bubble
   - [x] Collapse
   - [x] Comment
-  - [x] Countdown
+  - [ ] Countdown
   - [x] Empty placeholder
   - [x] Kbd
   - [x] Loading
   - [x] Progress
   - [x] Radial progress
   - [x] Stat
-  - [x] Table
   - [x] Tag
   - [x] Timeline
   - [x] Toast
@@ -95,7 +94,7 @@ Tweet about cyclone-ui: [![][tweet]][tweet-url]
   - [x] Indicator
   - [x] Input group
   - [x] Mask
-  - [x] Stack
+  - [ ] Stack
 
 - Navigation
   - [x] App bar
@@ -134,7 +133,8 @@ Please share
 [tweet]: https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FArcktosh%2Fcyclone-ui
 [license-url]: https://github.com/Arcktosh/cyclone-ui/blob/master/LICENSE
 [npm-url]: https://www.npmjs.com/package/cyclone-ui
+[dl]: https://badgen.net/npm/dt/cyclone-ui?label=installs&icon=npm&color=green
 [gh-url]: https://github.com/Arcktosh/cyclone-ui
-[build-url]: https://github.com/Arcktosh/cyclone-ui/actions
+[build-url]: https://cyclone-ui.vercel.app/
 [tweet-url]: https://twitter.com/intent/tweet?text=cyclone-ui%20%0D%0AComponents%20in%20Tailwind%20CSS%20%0D%0Ahttps://github.com/Arcktosh/cyclone-ui
 [number-of-components]: https://badgen.net/badge/total%20components/45/green
