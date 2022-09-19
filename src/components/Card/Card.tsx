@@ -1,4 +1,3 @@
-import './Card.css'
 import Button, { ButtonProps } from '../Button/Button'
 import Badge, { BadgeProps } from '../Badge/Badge'
 import { ReplaceSpaces } from '../../scripts'
@@ -86,4 +85,4 @@ const Card = (props: CardProps) => {
     )
 }
 
-export default Card
+export Card

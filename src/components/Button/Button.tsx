@@ -1,7 +1,6 @@
 import { CSSProperties, MouseEventHandler } from 'react'
 import { Colors, ResponsiveSizes, Shapes, Sizes } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Button.css'
 
 export interface ButtonProps {
     label?: string
@@ -54,4 +53,4 @@ const Button = (props: ButtonProps) => {
     )
 }
 
-export default Button
+export Button

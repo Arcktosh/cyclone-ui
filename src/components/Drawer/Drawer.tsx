@@ -1,7 +1,6 @@
 import { CSSProperties, ReactNode, useRef } from 'react'
 import { Colors, Widths } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Drawer.css'
 
 type Navbar = {
     top?: boolean
@@ -63,4 +62,4 @@ const Drawer = (props: DrawerProps) => {
     )
 }
 
-export default Drawer
+export Drawer

@@ -1,6 +1,5 @@
 import { CSSProperties } from 'react'
 import { Colors } from '../../static'
-import './CodeMockup.css'
 
 type Code = {
     prefix?: string
@@ -32,4 +31,4 @@ const CodeMockup = (props: CodeMockupProps) => {
     )
 }
 
-export default CodeMockup
+export CodeMockup

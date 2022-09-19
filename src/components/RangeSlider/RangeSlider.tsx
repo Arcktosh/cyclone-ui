@@ -1,7 +1,6 @@
 import { ChangeEvent, CSSProperties, ReactNode } from 'react'
 import { Colors, Sizes } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './RangeSlider.css'
 
 export interface RangeSliderProps {
     color?: Colors
@@ -35,4 +34,4 @@ const RangeSlider = (props: RangeSliderProps) => {
     )
 }
 
-export default RangeSlider
+export RangeSlider

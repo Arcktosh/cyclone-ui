@@ -1,7 +1,6 @@
 import { CSSProperties } from 'react'
 import { Colors, Shapes, Widths } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Avatar.css'
 
 type presence = { online?: boolean }
 type rounded = 'xl' | 'full'
@@ -26,7 +25,7 @@ export interface AvatarProps {
     style?: CSSProperties
 }
 
-const Avatar = (props: AvatarProps) => {
+export const Avatar = (props: AvatarProps) => {
     const defaultUrl = 'https://api.lorem.space/image/face'
 
     const group = props.grouped ? props.grouped.slice(0, props.groupedLimit) : []
@@ -76,5 +75,3 @@ const Avatar = (props: AvatarProps) => {
         </>
     )
 }
-
-export default Avatar

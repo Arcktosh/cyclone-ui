@@ -1,7 +1,6 @@
 import { CSSProperties, ReactNode } from 'react'
 import { Colors } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Indicator.css'
 
 type Position = {
     top?: boolean
@@ -57,4 +56,4 @@ const Indicator = (props: IndicatorProps) => {
     )
 }
 
-export default Indicator
+export Indicator

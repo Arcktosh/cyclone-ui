@@ -1,6 +1,5 @@
 import Code from 'qrcode.react'
 import VCard from 'vcard-creator'
-import './QRCode.css'
 
 type ImageSettings = {
     src?: string
@@ -91,4 +90,4 @@ const QRCode = (props: QRCodeProps) => {
     )
 }
 
-export default QRCode
+export QRCode

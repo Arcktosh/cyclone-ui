@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Colors, Sizes } from '../../static'
-import './Toggle.css'
 
 export interface ToggleProps {
     color?: Colors
@@ -32,4 +31,4 @@ const Toggle = (props: ToggleProps) => {
     )
 }
 
-export default Toggle
+export Toggle

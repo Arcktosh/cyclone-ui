@@ -1,7 +1,6 @@
 import { ChangeEvent, CSSProperties } from 'react'
 import { Colors, Sizes } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Radio.css'
 
 export interface RadioProps {
     label?: string
@@ -46,4 +45,4 @@ const Radio = (props: RadioProps) => {
     )
 }
 
-export default Radio
+export Radio

@@ -1,7 +1,6 @@
 import { CSSProperties, ReactNode } from 'react'
 import { Colors, Sizes } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Hero.css'
 
 type Title = {
     title?: string
@@ -40,4 +39,4 @@ const Hero = (props: HeroProps) => {
     )
 }
 
-export default Hero
+export Hero

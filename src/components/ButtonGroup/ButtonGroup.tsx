@@ -1,6 +1,5 @@
 import { ChangeEvent, CSSProperties } from 'react'
 import Button, { ButtonProps } from '../Button/Button'
-import './ButtonGroup.css'
 
 type radioList = {
     id?: number
@@ -36,4 +35,4 @@ const ButtonGroup = (props: ButtonGroupProps) => {
     }
 }
 
-export default ButtonGroup
+export ButtonGroup

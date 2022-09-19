@@ -1,7 +1,6 @@
 import { CSSProperties } from 'react'
 import { Colors, Sizes } from '../../static'
 import { ConvertDateToDaysHoursMinSec, ReplaceSpaces, UseCountdown } from '../../scripts'
-import './Countdown.css'
 
 type Label = {
     days: string
@@ -112,4 +111,4 @@ const Countdown = (props: CountdownProps) => {
     )
 }
 
-export default Countdown
+export Countdown

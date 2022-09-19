@@ -1,1 +1,1 @@
-export { default } from './Artboard'
+export * from './Artboard'

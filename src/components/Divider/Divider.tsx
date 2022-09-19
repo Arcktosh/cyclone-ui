@@ -1,6 +1,5 @@
 import { CSSProperties } from 'react'
 import { ReplaceSpaces } from '../../scripts'
-import './Divider.css'
 
 export interface DividerProps {
     isHorizontal?: boolean
@@ -19,4 +18,4 @@ const Divider = (props: DividerProps) => {
     )
 }
 
-export default Divider
+export Divider

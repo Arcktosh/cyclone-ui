@@ -1,7 +1,6 @@
 import { CSSProperties, ReactNode } from 'react'
 import { Colors } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Footer.css'
 
 type Column = {
     title?: string
@@ -50,4 +49,4 @@ const Footer = (props: FooterProps) => {
     )
 }
 
-export default Footer
+export Footer

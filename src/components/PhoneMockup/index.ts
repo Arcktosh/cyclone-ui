@@ -1,1 +1,1 @@
-export { default } from './PhoneMockup'
+export * from './PhoneMockup'

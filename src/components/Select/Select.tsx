@@ -1,7 +1,6 @@
 import { CSSProperties, useEffect, useState } from 'react'
 import { ReplaceSpaces } from '../../scripts'
 import { Colors, Sizes } from '../../static'
-import './Select.css'
 
 type List = {
     value?: string | number
@@ -79,4 +78,4 @@ const Select = (props: SelectProps) => {
     )
 }
 
-export default Select
+export Select

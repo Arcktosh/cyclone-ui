@@ -1,7 +1,6 @@
 import { CSSProperties } from 'react'
 import { ReplaceSpaces } from '../../scripts'
 import { Colors, Widths } from '../../static'
-import './Progress.css'
 
 export interface ProgressProps {
     width?: Widths
@@ -20,4 +19,4 @@ const Progress = (props: ProgressProps) => {
     return <progress className={className} value={value} max={max} style={props.style}></progress>
 }
 
-export default Progress
+export Progress

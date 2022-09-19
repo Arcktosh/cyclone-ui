@@ -1,7 +1,6 @@
 import { CSSProperties } from 'react'
 import { Colors } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Collapse.css'
 
 type Icon = {
     arrow?: boolean
@@ -46,4 +45,4 @@ const Collapse = (props: CollapseProps) => {
     )
 }
 
-export default Collapse
+export Collapse

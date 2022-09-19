@@ -1,7 +1,6 @@
 import { ReactNode } from 'react'
 import { Colors, Directions } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Tooltip.css'
 
 export interface TooltipProps {
     open?: boolean
@@ -24,4 +23,4 @@ const Tooltip = (props: TooltipProps) => {
     )
 }
 
-export default Tooltip
+export Tooltip

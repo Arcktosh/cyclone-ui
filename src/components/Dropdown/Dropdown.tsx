@@ -1,7 +1,6 @@
 import { CSSProperties, ReactNode } from 'react'
 import { ReplaceSpaces } from '../../scripts'
 import { Colors, Widths } from '../../static'
-import './Dropdown.css'
 
 type List = {
     id: number
@@ -64,4 +63,4 @@ const Dropdown = (props: DropdownProps) => {
     )
 }
 
-export default Dropdown
+export Dropdown

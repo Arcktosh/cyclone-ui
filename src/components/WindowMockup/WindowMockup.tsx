@@ -1,5 +1,4 @@
 import { Colors } from '../../static'
-import './WindowMockup.css'
 
 export interface WindowMockupProps {
     children?: any
@@ -16,4 +15,4 @@ const WindowMockup = (props: WindowMockupProps) => {
     )
 }
 
-export default WindowMockup
+export WindowMockup

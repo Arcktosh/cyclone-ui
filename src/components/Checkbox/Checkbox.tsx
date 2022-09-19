@@ -1,7 +1,6 @@
 import { ChangeEvent, CSSProperties } from 'react'
 import { Colors, Sizes } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Checkbox.css'
 
 export interface CheckboxProps {
     label?: string
@@ -36,4 +35,4 @@ const Checkbox = (props: CheckboxProps) => {
     )
 }
 
-export default Checkbox
+export Checkbox

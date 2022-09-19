@@ -1,7 +1,6 @@
 import { CSSProperties } from 'react'
 import { backgrounds, Colors, Widths } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Carousel.css'
 
 type Image = {
     url?: string
@@ -81,4 +80,4 @@ const Carousel = (props: CarouselProps) => {
     )
 }
 
-export default Carousel
+export Carousel

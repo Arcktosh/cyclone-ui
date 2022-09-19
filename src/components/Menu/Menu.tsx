@@ -1,7 +1,6 @@
 import { ReactNode } from 'react'
 import { ReplaceSpaces } from '../../scripts'
 import { Colors, Widths } from '../../static'
-import './Menu.css'
 
 type Item = {
     id?: number
@@ -65,4 +64,4 @@ const Menu = (props: MenuProps) => {
     )
 }
 
-export default Menu
+export Menu

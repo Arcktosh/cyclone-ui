@@ -1,7 +1,6 @@
 import { MouseEventHandler } from 'react'
 import { Sizes } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Tabs.css'
 
 type Tab = {
     active?: boolean
@@ -50,4 +49,4 @@ const Tabs = (props: TabsProps) => {
     )
 }
 
-export default Tabs
+export Tabs

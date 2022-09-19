@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ReplaceSpaces } from '../../scripts'
 import { Colors, Sizes } from '../../static'
-import './TextInput.css'
 
 export interface TextInputProps {
     placeholder?: string
@@ -52,4 +51,4 @@ const TextInput = (props: TextInputProps) => {
     )
 }
 
-export default TextInput
+export TextInput

@@ -1,6 +1,5 @@
 import { CSSProperties } from 'react'
 import { Colors } from '../../static'
-import './PhoneMockup.css'
 
 export interface PhoneMockupProps {
     children?: any
@@ -25,4 +24,4 @@ const PhoneMockup = (props: PhoneMockupProps) => {
     )
 }
 
-export default PhoneMockup
+export PhoneMockup

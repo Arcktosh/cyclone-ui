@@ -1,7 +1,6 @@
 import { CSSProperties } from 'react'
 import { Colors, Widths } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './RadialProgress.css'
 
 export interface RadialProgressProps {
     border?: Widths
@@ -41,4 +40,4 @@ const RadialProgress = (props: RadialProgressProps) => {
     )
 }
 
-export default RadialProgress
+export RadialProgress

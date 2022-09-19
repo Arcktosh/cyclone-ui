@@ -1,7 +1,6 @@
 import { CSSProperties } from 'react'
 import { Sizes } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Kbd.css'
 
 export interface KbdProps {
     size?: Sizes
@@ -19,4 +18,4 @@ const Kbd = (props: KbdProps) => {
     )
 }
 
-export default Kbd
+export Kbd

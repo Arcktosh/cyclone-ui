@@ -1,7 +1,6 @@
 import { ReactNode } from 'react'
 import { Sizes } from '../../static'
 import Button, { ButtonProps } from '../Button/Button'
-import './InputGroup.css'
 
 type Label = {
     direction?: 'left' | 'right'
@@ -47,4 +46,4 @@ const InputGroup = (props: InputGroupProps) => {
     )
 }
 
-export default InputGroup
+export InputGroup

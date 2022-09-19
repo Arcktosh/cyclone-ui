@@ -1,7 +1,6 @@
 import { ReactNode } from 'react'
 import { ReplaceSpaces } from '../../scripts'
 import { Sizes } from '../../static'
-import './Swap.css'
 
 export interface SwapProps {
     on?: ReactNode | string
@@ -35,4 +34,4 @@ const Swap = (props: SwapProps) => {
     )
 }
 
-export default Swap
+export Swap

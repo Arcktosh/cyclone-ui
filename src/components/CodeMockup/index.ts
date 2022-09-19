@@ -1,1 +1,1 @@
-export { default } from './CodeMockup'
+export * from './CodeMockup'

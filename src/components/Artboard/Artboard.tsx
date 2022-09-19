@@ -1,6 +1,5 @@
 import { CSSProperties, ReactNode } from 'react'
 import { ReplaceSpaces } from '../../scripts'
-import './Artboard.css'
 
 export interface ArtboardProps {
     label?: string
@@ -10,7 +9,7 @@ export interface ArtboardProps {
     style?: CSSProperties
 }
 
-const Artboard = (props: ArtboardProps) => {
+export const Artboard = (props: ArtboardProps) => {
     const horizontal = props.horizontal ? 'artboard-horizontal' : ''
     const classes = ReplaceSpaces(`artboard artboard-demo ${horizontal} ${props.size}`)
 
@@ -21,5 +20,3 @@ const Artboard = (props: ArtboardProps) => {
         </div>
     )
 }
-
-export default Artboard

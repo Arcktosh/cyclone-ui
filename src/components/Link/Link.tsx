@@ -1,7 +1,6 @@
 import { CSSProperties } from 'react'
 import { Colors } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Link.css'
 
 export interface LinkProps {
     color?: Colors
@@ -23,4 +22,4 @@ const Link = (props: LinkProps) => {
     )
 }
 
-export default Link
+export Link

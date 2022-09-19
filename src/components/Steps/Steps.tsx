@@ -1,7 +1,6 @@
 import { MouseEventHandler } from 'react'
 import { ReplaceSpaces } from '../../scripts'
 import { Colors } from '../../static'
-import './Steps.css'
 
 type Step = {
     title?: string
@@ -36,4 +35,4 @@ const Steps = (props: StepsProps) => {
     )
 }
 
-export default Steps
+export Steps

@@ -1,30 +1,25 @@
 import { CSSProperties } from 'react'
 import { ReplaceSpaces } from '../../scripts'
-import './Badge.css'
+import { Colors, Sizes } from '../../static'
 
-type sizes = 'xs' | 'sm' | 'md' | 'lg'
-type color = 'primary' | 'secondary' | 'accent' | 'ghost' | 'info' | 'success' | 'warning' | 'error'
-
-export interface BadgeProps {
-    label?: string
+export interface BadgeProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
     outline?: boolean
-    size?: sizes
-    color?: color
-    style?: CSSProperties
+    size?: Sizes
+    color?: Colors
 }
 
-const Badge = (props: BadgeProps) => {
-    const color = props.color ? `badge-${props.color}` : ''
-    const outline = props.outline ? 'badge-outline' : ''
-    const size = props.size ? `badge-${props.size}` : ''
+export const Badge = (props: BadgeProps) => {
+    const { children, color, outline, size, style } = props
+    const bcolor = color ? `badge-${props.color}` : ''
+    const boutline = outline ? 'badge-outline' : ''
+    const bsize = size ? `badge-${props.size}` : ''
+    const _style: CSSProperties = style || {}
 
-    const classes = ReplaceSpaces(`badge ${size} ${color} ${outline}`)
+    const classes = ReplaceSpaces(`badge ${bsize} ${bcolor} ${boutline}`)
 
     return (
-        <span className={classes} style={props.style}>
-            {props.label}
+        <span className={classes} style={_style} {...props}>
+            {children}
         </span>
     )
 }
-
-export default Badge

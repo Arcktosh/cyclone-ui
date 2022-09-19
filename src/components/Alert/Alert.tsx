@@ -1,7 +1,6 @@
 import { CSSProperties, ReactNode } from 'react'
 import { Colors } from '../../static'
 import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from '../SvgIcons'
-import './Alert.css'
 
 export interface AlertProps {
     title?: string
@@ -14,7 +13,7 @@ export interface AlertProps {
     descriptionStyle?: CSSProperties
 }
 
-const Alert = (props: AlertProps) => {
+export const Alert = (props: AlertProps) => {
     const bgColor = props.bgColor ? `alert alert-${props.bgColor}` : 'alert'
 
     const bgIcon = () => {
@@ -51,5 +50,3 @@ const Alert = (props: AlertProps) => {
         </div>
     )
 }
-
-export default Alert

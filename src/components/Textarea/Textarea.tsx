@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ReplaceSpaces } from '../../scripts'
 import { Colors, Widths } from '../../static'
-import './Textarea.css'
 
 export interface TextareaProps {
     placeholder?: string
@@ -54,4 +53,4 @@ const Textarea = (props: TextareaProps) => {
     )
 }
 
-export default Textarea
+export Textarea

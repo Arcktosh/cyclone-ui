@@ -1,6 +1,5 @@
 import { CSSProperties, ReactNode } from 'react'
 import { ReplaceSpaces } from '../../scripts'
-import './Breadcrumbs.css'
 
 type Link = {
     url?: string
@@ -37,4 +36,4 @@ const Breadcrumbs = (props: BreadcrumbsProps) => {
     )
 }
 
-export default Breadcrumbs
+export Breadcrumbs

@@ -1,1 +1,1 @@
-export { default } from './RadialProgress'
+export * from './RadialProgress'

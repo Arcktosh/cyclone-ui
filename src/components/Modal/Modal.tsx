@@ -1,6 +1,5 @@
 import { CSSProperties, ReactNode, useState } from 'react'
 import Button, { ButtonProps } from '../Button/Button'
-import './Modal.css'
 
 type popup = {
     heading?: string
@@ -42,4 +41,4 @@ const Modal = (props: ModalProps) => {
     )
 }
 
-export default Modal
+export Modal

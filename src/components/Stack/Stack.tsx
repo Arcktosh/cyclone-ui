@@ -1,6 +1,5 @@
 import { CSSProperties, ReactNode } from 'react'
 import { Colors, Widths } from '../../static'
-import './Stack.css'
 
 export interface StackProps {
     stack: ReactNode
@@ -33,4 +32,4 @@ const Stack = (props: StackProps) => {
     )
 }
 
-export default Stack
+export Stack

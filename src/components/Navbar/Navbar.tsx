@@ -1,6 +1,5 @@
 import { CSSProperties, ReactNode } from 'react'
 import { Colors } from '../../static'
-import './Navbar.css'
 
 export interface NavbarProps {
     start?: ReactNode
@@ -23,4 +22,4 @@ const Navbar = (props: NavbarProps) => {
     )
 }
 
-export default Navbar
+export Navbar

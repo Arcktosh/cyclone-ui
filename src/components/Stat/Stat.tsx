@@ -1,6 +1,5 @@
 import { ReactNode } from 'react'
 import { Colors } from '../../static'
-import './Stat.css'
 
 type Value = {
     label?: string
@@ -38,4 +37,4 @@ const Stat = (props: StatProps) => {
     )
 }
 
-export default Stat
+export Stat

@@ -1,7 +1,6 @@
 import { CSSProperties, useEffect, useState } from 'react'
 import { Shapes, Sizes } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
-import './Rating.css'
 
 export interface RatingProps {
     half?: boolean
@@ -70,4 +69,4 @@ const Rating = (props: RatingProps) => {
     )
 }
 
-export default Rating
+export Rating
