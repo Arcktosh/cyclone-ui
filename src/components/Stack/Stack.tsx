@@ -3,18 +3,18 @@ import { Colors, Widths } from '../../static'
 import './Stack.css'
 
 export interface StackProps {
-  stack: ReactNode
-  width?: Widths
-  height?: Widths
-  classes?: string
-  style?: CSSProperties
-  color?: Colors
+    stack: ReactNode
+    width?: Widths
+    height?: Widths
+    classes?: string
+    style?: CSSProperties
+    color?: Colors
 }
 //TODO:Fix Stack mapping
 const Stack = (props: StackProps) => {
-  return (
-    <div className='stack'>
-      {/* {props.stack?.map((item, i) => (
+    return (
+        <div className="stack">
+            {/* {props.stack?.map((item, i) => (
         <div
           key={i}
           className={`grid ${props.width ? `w-${props.width}` : 'w-32'} ${
@@ -29,8 +29,8 @@ const Stack = (props: StackProps) => {
           {item}
         </div>
       ))} */}
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Stack

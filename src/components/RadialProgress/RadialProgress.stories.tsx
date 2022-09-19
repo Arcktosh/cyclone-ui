@@ -2,13 +2,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import RadialProgress from './RadialProgress'
 
 export default {
-  title: 'Components/DataDisplay/RadialProgress',
-  component: RadialProgress,
+    title: 'Components/DataDisplay/RadialProgress',
+    component: RadialProgress
 } as ComponentMeta<typeof RadialProgress>
 
-const Template: ComponentStory<typeof RadialProgress> = (args) => (
-  <RadialProgress {...args} />
-)
+const Template: ComponentStory<typeof RadialProgress> = (args) => <RadialProgress {...args} />
 
 export const Base = Template.bind({})
 Base.args = { label: 'Progress' }

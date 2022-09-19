@@ -1,17 +1,17 @@
-export { backgrounds } from "./colors"
-export type { Colors } from "./colors"
+export { backgrounds } from './colors'
+export type { Colors } from './colors'
 
-export { ResponsiveSizes } from "./sizes"
-export type { Sizes } from "./sizes"
+export { ResponsiveSizes } from './sizes'
+export type { Sizes } from './sizes'
 
-export type { Shapes } from "./shapes"
+export type { Shapes } from './shapes'
 
-export type { Paddings } from "./paddings"
-export { PaddingClasses } from "./paddings"
+export type { Paddings } from './paddings'
+export { PaddingClasses } from './paddings'
 
-export type { Margins } from "./margins"
-export { MarginClasses } from "./margins"
+export type { Margins } from './margins'
+export { MarginClasses } from './margins'
 
-export type { Widths } from "./widths"
+export type { Widths } from './widths'
 
-export type { Directions } from "./directions";
+export type { Directions } from './directions'

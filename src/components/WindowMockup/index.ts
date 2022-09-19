@@ -1,1 +1,1 @@
-export { default } from "./WindowMockup";
+export { default } from './WindowMockup'

@@ -3,38 +3,38 @@ import { ReplaceSpaces } from '../../scripts'
 import './Breadcrumbs.css'
 
 type Link = {
-  url?: string
-  label?: string
-  icon?: ReactNode
+    url?: string
+    label?: string
+    icon?: ReactNode
 }
 
 export interface BreadcrumbsProps {
-  links: Link[]
-  textSize?: 'sm' | 'md' | 'lg'
-  maxWidth?: 'xs' | 'sm' | 'md' | 'lg'
-  style?: CSSProperties
+    links: Link[]
+    textSize?: 'sm' | 'md' | 'lg'
+    maxWidth?: 'xs' | 'sm' | 'md' | 'lg'
+    style?: CSSProperties
 }
 
 const Breadcrumbs = (props: BreadcrumbsProps) => {
-  const textSize = props.textSize ? `text-${props.textSize}` : 'text-sm'
-  const maxWidth = props.maxWidth ? `max-w-${props.maxWidth}` : 'max-w-xs'
+    const textSize = props.textSize ? `text-${props.textSize}` : 'text-sm'
+    const maxWidth = props.maxWidth ? `max-w-${props.maxWidth}` : 'max-w-xs'
 
-  const classes = ReplaceSpaces(`${maxWidth} ${textSize} breadcrumbs`)
+    const classes = ReplaceSpaces(`${maxWidth} ${textSize} breadcrumbs`)
 
-  return (
-    <div className={classes} style={props.style}>
-      <ul>
-        {props.links.map((link, i) => (
-          <li key={link.url || link.label || '' + i}>
-            <a href={link.url}>
-              {link.icon}
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
+    return (
+        <div className={classes} style={props.style}>
+            <ul>
+                {props.links.map((link, i) => (
+                    <li key={link.url || link.label || '' + i}>
+                        <a href={link.url}>
+                            {link.icon}
+                            {link.label}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    )
 }
 
 export default Breadcrumbs

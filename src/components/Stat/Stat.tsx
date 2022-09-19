@@ -3,57 +3,39 @@ import { Colors } from '../../static'
 import './Stat.css'
 
 type Value = {
-  label?: string
-  color?: Colors
-  type?: 'title' | 'value' | 'desc' | 'actions' | 'figure'
-  children?: ReactNode
+    label?: string
+    color?: Colors
+    type?: 'title' | 'value' | 'desc' | 'actions' | 'figure'
+    children?: ReactNode
 }
 
 type StatItem = {
-  values?: Value[]
-  color?: Colors
-  centered?: boolean
+    values?: Value[]
+    color?: Colors
+    centered?: boolean
 }
 export interface StatProps {
-  stats: StatItem[]
-  vertical?: boolean
-  responsive?: boolean
+    stats: StatItem[]
+    vertical?: boolean
+    responsive?: boolean
 }
 
 const Stat = (props: StatProps) => {
-  return (
-    <div
-      className={`stats ${
-        props.vertical ? 'stats-vertical' : 'stats-horizontal'
-      } ${props.responsive ? 'lg:stats-horizontal' : ''} shadow`}
-    >
-      {props.stats ? (
-        props.stats.map((StatItem) => (
-          <div
-            className={`stat ${StatItem.centered ? 'place-items-center' : ''}`}
-          >
-            {StatItem.values?.map((Value) => (
-              <div
-                className={`stat-${Value.type} ${
-                  Value.color ? `text-${Value.color}` : ''
-                }`}
-              >
-                {Value.label ? (
-                  Value.label
-                ) : Value.children ? (
-                  Value.children
-                ) : (
-                  <></>
-                )}
-              </div>
-            ))}
-          </div>
-        ))
-      ) : (
-        <></>
-      )}
-    </div>
-  )
+    return (
+        <div className={`stats ${props.vertical ? 'stats-vertical' : 'stats-horizontal'} ${props.responsive ? 'lg:stats-horizontal' : ''} shadow`}>
+            {props.stats ? (
+                props.stats.map((StatItem) => (
+                    <div className={`stat ${StatItem.centered ? 'place-items-center' : ''}`}>
+                        {StatItem.values?.map((Value) => (
+                            <div className={`stat-${Value.type} ${Value.color ? `text-${Value.color}` : ''}`}>{Value.label ? Value.label : Value.children ? Value.children : <></>}</div>
+                        ))}
+                    </div>
+                ))
+            ) : (
+                <></>
+            )}
+        </div>
+    )
 }
 
 export default Stat
