@@ -13,7 +13,7 @@ export interface LinkProps {
     style?: CSSProperties
 }
 
-const Link = (props: LinkProps) => {
+export const Link = (props: LinkProps) => {
     const classes = ReplaceSpaces(`link ${props.color ? `link-${props.color}` : ''} ${props.hover ? 'link-hover' : ''} ${props.classes}`)
     return (
         <a href={props.link} className={classes} rel={props.rel} target={props.target} style={props.style}>
@@ -21,5 +21,3 @@ const Link = (props: LinkProps) => {
         </a>
     )
 }
-
-export Link

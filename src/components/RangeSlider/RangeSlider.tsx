@@ -15,7 +15,7 @@ export interface RangeSliderProps {
     classes?: string
 }
 
-const RangeSlider = (props: RangeSliderProps) => {
+export const RangeSlider = (props: RangeSliderProps) => {
     const classes = ReplaceSpaces(`range ${props.size ? `range-${props.size}` : ''} ${props.color ? `range-${props.color}` : ''} ${props.classes}`)
     return (
         <>
@@ -33,5 +33,3 @@ const RangeSlider = (props: RangeSliderProps) => {
         </>
     )
 }
-
-export RangeSlider

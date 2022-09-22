@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react'
 import { Colors } from '../../static'
 
-type Code = {
+export type Code = {
     prefix?: string
     code?: string
     class?: string
@@ -13,7 +13,7 @@ export interface CodeMockupProps {
     style?: CSSProperties
 }
 
-const CodeMockup = (props: CodeMockupProps) => {
+export const CodeMockup = (props: CodeMockupProps) => {
     const bgColor = props.bgColor ? `bg-${props.bgColor} text-${props.bgColor}-content` : ''
 
     return (
@@ -31,4 +31,3 @@ const CodeMockup = (props: CodeMockupProps) => {
     )
 }
 
-export CodeMockup

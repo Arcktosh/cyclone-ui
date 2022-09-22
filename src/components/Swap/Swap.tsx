@@ -12,7 +12,7 @@ export interface SwapProps {
     size?: Sizes
 }
 
-const Swap = (props: SwapProps) => {
+export const Swap = (props: SwapProps) => {
     const classes = ReplaceSpaces(`swap ${props.flip ? 'swap-flip' : ''} ${props.rotate ? 'swap-rotate' : ''} ${props.size ? `text-${props.size}` : ''}`)
 
     return props.hamburgerButton ? (
@@ -33,5 +33,3 @@ const Swap = (props: SwapProps) => {
         </label>
     )
 }
-
-export Swap

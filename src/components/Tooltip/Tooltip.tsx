@@ -10,7 +10,7 @@ export interface TooltipProps {
     children?: ReactNode
 }
 
-const Tooltip = (props: TooltipProps) => {
+export const Tooltip = (props: TooltipProps) => {
     const color = props.color ? `tooltip-${props.color}` : ''
     const direction = props.direction ? `tooltip-${props.direction}` : ''
     const open = props.open ? `tooltip-open` : ''
@@ -22,5 +22,3 @@ const Tooltip = (props: TooltipProps) => {
         </div>
     )
 }
-
-export Tooltip

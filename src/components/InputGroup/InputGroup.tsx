@@ -1,13 +1,13 @@
 import { ReactNode } from 'react'
 import { Sizes } from '../../static'
-import Button, { ButtonProps } from '../Button/Button'
+import { Button, ButtonProps } from '../Button'
 
-type Label = {
+export type Label = {
     direction?: 'left' | 'right'
     text?: string
 }
 
-type Input = {
+export type Input = {
     label?: Label[]
     children?: ReactNode
     vertical?: boolean
@@ -20,7 +20,7 @@ export interface InputGroupProps {
     size?: Sizes
 }
 
-const InputGroup = (props: InputGroupProps) => {
+export const InputGroup = (props: InputGroupProps) => {
     return (
         <div className="form-control">
             {props.groupLabel ? (
@@ -45,5 +45,3 @@ const InputGroup = (props: InputGroupProps) => {
         </div>
     )
 }
-
-export InputGroup

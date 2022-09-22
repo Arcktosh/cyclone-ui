@@ -2,7 +2,7 @@ import { CSSProperties, ReactNode } from 'react'
 import { Colors, Sizes } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
 
-type Title = {
+export type Title = {
     title?: string
     fontSize?: Sizes
 }
@@ -18,7 +18,7 @@ export interface HeroProps {
     style?: CSSProperties
 }
 
-const Hero = (props: HeroProps) => {
+export const Hero = (props: HeroProps) => {
     const classes = ReplaceSpaces(`hero min-h-screen ${props.bgColor ? `bg-${props.bgColor}` : 'bg-base-200'}`)
     const contentClasses = ReplaceSpaces(`hero-content ${props.reversed ? 'flex-col lg:flex-row-reverse' : 'flex-col lg:flex-row'} ${props.centered ? 'text-center' : ''}`)
     const titleClass = ReplaceSpaces(`${props.title?.fontSize ? `text-${props.title.fontSize}` : 'text-5xl'} font-bold`)
@@ -38,5 +38,3 @@ const Hero = (props: HeroProps) => {
         </div>
     )
 }
-
-export Hero

@@ -16,7 +16,7 @@ export interface TextInputProps {
     onChange?: (a: string | number) => void
 }
 
-const TextInput = (props: TextInputProps) => {
+export const TextInput = (props: TextInputProps) => {
     const [val, setVal] = useState<any>(null)
     const classes = ReplaceSpaces(`input ${props.color ? `input-${props.color}` : ''} ${props.size ? `input-${props.size}` : ''} ${props.border ? `input-bordered` : ''} w-full max-w-xs`)
     useEffect(() => {
@@ -50,5 +50,3 @@ const TextInput = (props: TextInputProps) => {
         </div>
     )
 }
-
-export TextInput

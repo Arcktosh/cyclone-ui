@@ -15,7 +15,7 @@ export interface RadialProgressProps {
     style?: CSSProperties
 }
 
-const RadialProgress = (props: RadialProgressProps) => {
+export const RadialProgress = (props: RadialProgressProps) => {
     const max = props.max ? props.max : 100
     const value = props.value ? props.value : Math.floor(Math.random() * 100 + 1)
     const percentage = (value / max) * 100
@@ -39,5 +39,3 @@ const RadialProgress = (props: RadialProgressProps) => {
         </div>
     )
 }
-
-export RadialProgress

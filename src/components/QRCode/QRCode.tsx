@@ -1,7 +1,7 @@
 import Code from 'qrcode.react'
 import VCard from 'vcard-creator'
 
-type ImageSettings = {
+export type ImageSettings = {
     src?: string
     x?: number
     y?: number
@@ -10,7 +10,7 @@ type ImageSettings = {
     excavate?: boolean
 }
 
-type VCardProps = {
+export type VCardProps = {
     firstname?: string
     lastname?: string
     additional?: string
@@ -43,7 +43,7 @@ export interface QRCodeProps {
     vCard?: VCardProps
 }
 
-const QRCode = (props: QRCodeProps) => {
+export const QRCode = (props: QRCodeProps) => {
     const myVCard = new VCard()
 
     if (props.vCard) {
@@ -89,5 +89,3 @@ const QRCode = (props: QRCodeProps) => {
         />
     )
 }
-
-export QRCode

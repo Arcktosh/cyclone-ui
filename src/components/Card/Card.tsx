@@ -1,16 +1,16 @@
-import Button, { ButtonProps } from '../Button/Button'
-import Badge, { BadgeProps } from '../Badge/Badge'
+import { CSSProperties } from 'react'
+import  {Button, ButtonProps } from '../Button'
+import  {Badge, BadgeProps } from '../Badge'
 import { ReplaceSpaces } from '../../scripts'
 import { backgrounds, Colors, PaddingClasses, Paddings } from '../../static'
-import { CSSProperties } from 'react'
 
-type Image = {
+export type Image = {
     url?: string
     alt?: string
     padding?: Paddings //padding for the image
     overlay?: boolean
 }
-type Direction = {
+export type Direction = {
     buttonTop?: boolean // Display Button at top of card
     imageSide?: boolean // Display Image on side of card
     imageBottom?: boolean // Display Image at bottom of card
@@ -32,7 +32,7 @@ export interface CardProps {
     bodyClasses?: string
 }
 
-const Card = (props: CardProps) => {
+export const Card = (props: CardProps) => {
     const background = props.bgColor ? backgrounds(props.bgColor) : 'bg-base-100'
     const bodyClasses = props.center ? 'card-body items-center text-center' : props.bodyClasses ? props.bodyClasses : 'p-5'
 
@@ -84,5 +84,3 @@ const Card = (props: CardProps) => {
         </div>
     )
 }
-
-export Card

@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { ReplaceSpaces } from '../../scripts'
 import { Colors, Widths } from '../../static'
 
-type Item = {
+export type Item = {
     id?: number
     value?: string
     url?: string
@@ -10,7 +10,7 @@ type Item = {
     isActive?: boolean
     bordered?: boolean
 }
-type MenuStructure = {
+export type MenuStructure = {
     title?: string
     items?: Item[]
     disabled?: boolean
@@ -29,7 +29,7 @@ export interface MenuProps {
     horizontal?: boolean
     onlyIcon?: boolean
 }
-const Menu = (props: MenuProps) => {
+export const Menu = (props: MenuProps) => {
     const classes = ReplaceSpaces(
         `menu ${props.bgColor ? `bg-${props.bgColor} text-${props.bgColor}-content` : 'bg-base-100'} ${props.width ? `w-${props.width}` : ''} ${props.classes ? props.classes : ''} ${
             props.isRounded ? 'rounded-box' : ''
@@ -63,5 +63,3 @@ const Menu = (props: MenuProps) => {
         </ul>
     )
 }
-
-export Menu

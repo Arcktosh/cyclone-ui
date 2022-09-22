@@ -2,13 +2,13 @@ import { CSSProperties, ReactNode } from 'react'
 import { ReplaceSpaces } from '../../scripts'
 import { Colors, Widths } from '../../static'
 
-type List = {
+export type List = {
     id: number
     value: string | number
     href?: string
 }
 
-type Direction = 'left' | 'right' | 'top' | 'end'
+export type Direction = 'left' | 'right' | 'top' | 'end'
 
 export interface DropdownProps {
     label?: string
@@ -26,7 +26,7 @@ export interface DropdownProps {
     dropdownStyle?: CSSProperties
 }
 
-const Dropdown = (props: DropdownProps) => {
+export const Dropdown = (props: DropdownProps) => {
     const list = props.list ? (
         props.list.map((item) => <li>{item.href ? <a href={item.href}>{item.value}</a> : <span>{item.value}</span>}</li>)
     ) : (
@@ -63,4 +63,3 @@ const Dropdown = (props: DropdownProps) => {
     )
 }
 
-export Dropdown

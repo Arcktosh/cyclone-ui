@@ -14,7 +14,7 @@ export interface RatingProps {
     style?: CSSProperties
 }
 
-const Rating = (props: RatingProps) => {
+export const Rating = (props: RatingProps) => {
     const [rate, setRate] = useState<number | undefined>(0)
     const classes = ReplaceSpaces(`rating gap-1 ${props.size ? `rating-${props.size}` : ``} ${props.half ? `rating-half` : ''} ${props.classes}`)
     const rating = ReplaceSpaces(`mask ${props.shape ? `mask-${props.shape}` : 'mask-star'} bg-orange-400`)
@@ -68,5 +68,3 @@ const Rating = (props: RatingProps) => {
         </div>
     )
 }
-
-export Rating

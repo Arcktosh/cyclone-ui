@@ -2,7 +2,7 @@ import { CSSProperties, ReactNode } from 'react'
 import { Colors } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
 
-type Position = {
+export type Position = {
     top?: boolean
     middle?: boolean
     bottom?: boolean
@@ -21,7 +21,7 @@ export interface IndicatorProps {
     style?: CSSProperties
 }
 
-const Indicator = (props: IndicatorProps) => {
+export const Indicator = (props: IndicatorProps) => {
     const position = () => {
         let positions = ''
         if (props.responsive) {
@@ -55,5 +55,3 @@ const Indicator = (props: IndicatorProps) => {
         </div>
     )
 }
-
-export Indicator

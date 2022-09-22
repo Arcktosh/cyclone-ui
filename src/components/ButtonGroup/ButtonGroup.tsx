@@ -1,7 +1,7 @@
 import { ChangeEvent, CSSProperties } from 'react'
-import Button, { ButtonProps } from '../Button/Button'
+import {Button, ButtonProps } from '../Button'
 
-type radioList = {
+export type radioList = {
     id?: number
     label?: string
     checked?: boolean
@@ -15,7 +15,7 @@ export interface ButtonGroupProps {
     inputStyle?: CSSProperties
 }
 
-const ButtonGroup = (props: ButtonGroupProps) => {
+export const ButtonGroup = (props: ButtonGroupProps) => {
     if (props.buttons) {
         return (
             <div className="btn-group" style={props.style}>
@@ -35,4 +35,3 @@ const ButtonGroup = (props: ButtonGroupProps) => {
     }
 }
 
-export ButtonGroup

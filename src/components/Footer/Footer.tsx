@@ -2,12 +2,12 @@ import { CSSProperties, ReactNode } from 'react'
 import { Colors } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
 
-type Column = {
+export type Column = {
     title?: string
     content?: ReactNode
 }
 
-type Logo = {
+export type Logo = {
     title?: string | ReactNode
     icon?: ReactNode
 }
@@ -21,7 +21,7 @@ export interface FooterProps {
     style?: CSSProperties
 }
 
-const Footer = (props: FooterProps) => {
+export const Footer = (props: FooterProps) => {
     const title = props.logo ? (
         <div>
             {props.logo?.icon}
@@ -48,5 +48,3 @@ const Footer = (props: FooterProps) => {
         </footer>
     )
 }
-
-export Footer

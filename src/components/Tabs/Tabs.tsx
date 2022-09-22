@@ -2,7 +2,7 @@ import { MouseEventHandler } from 'react'
 import { Sizes } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
 
-type Tab = {
+export type Tab = {
     active?: boolean
     title?: string
     href?: string
@@ -17,7 +17,7 @@ export interface TabsProps {
     boxed?: boolean
 }
 
-const Tabs = (props: TabsProps) => {
+export const Tabs = (props: TabsProps) => {
     const tabsClass = ReplaceSpaces(`tabs ${props.boxed ? 'tabs-boxed ' : ''}`)
     const tabClasses = ReplaceSpaces(`tab ${props.bordered ? 'tab-bordered ' : ''} ${props.lifted ? 'tab-lifted ' : ''} ${props.size ? `tab-${props.size}` : ''}`)
 
@@ -48,5 +48,3 @@ const Tabs = (props: TabsProps) => {
         </div>
     )
 }
-
-export Tabs

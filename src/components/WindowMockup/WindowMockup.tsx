@@ -6,7 +6,7 @@ export interface WindowMockupProps {
     contentBgColor?: Colors
 }
 
-const WindowMockup = (props: WindowMockupProps) => {
+export const WindowMockup = (props: WindowMockupProps) => {
     const bgColor = props.bannerBgColor ? `border bg-${props.bannerBgColor} text-${props.bannerBgColor}-content` : 'border border-base-300'
     return (
         <div className={`mockup-window ${bgColor}`}>
@@ -14,5 +14,3 @@ const WindowMockup = (props: WindowMockupProps) => {
         </div>
     )
 }
-
-export WindowMockup

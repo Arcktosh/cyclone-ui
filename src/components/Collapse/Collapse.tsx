@@ -2,12 +2,12 @@ import { CSSProperties } from 'react'
 import { Colors } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
 
-type Icon = {
+export type Icon = {
     arrow?: boolean
     plus?: boolean
 }
 
-type Font = {
+export type Font = {
     textSize?: string //text-xl
     font?: string //font-medium
 }
@@ -24,7 +24,7 @@ export interface CollapseProps {
     contentStyle?: CSSProperties
 }
 
-const Collapse = (props: CollapseProps) => {
+export const Collapse = (props: CollapseProps) => {
     const focusColor = props.focusColor ? `peer-checked:bg-${props.focusColor} peer-checked:text-${props.focusColor}-content` : 'collapse-focus'
     const bgColor = props.bgColor ? `border bg-${props.bgColor} text-${props.bgColor}-content rounded-box` : ''
     const icon = props.icon ? (props.icon.plus ? 'collapse-plus' : props.icon.arrow ? 'collapse-arrow' : '') : ''
@@ -45,4 +45,3 @@ const Collapse = (props: CollapseProps) => {
     )
 }
 
-export Collapse

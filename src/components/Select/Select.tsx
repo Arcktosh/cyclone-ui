@@ -2,7 +2,7 @@ import { CSSProperties, useEffect, useState } from 'react'
 import { ReplaceSpaces } from '../../scripts'
 import { Colors, Sizes } from '../../static'
 
-type List = {
+export type List = {
     value?: string | number
     label?: string
 }
@@ -24,7 +24,7 @@ export interface SelectProps {
     style?: CSSProperties
 }
 
-const Select = (props: SelectProps) => {
+export const Select = (props: SelectProps) => {
     const [value, setValue] = useState<string | number>(0)
 
     useEffect(() => {
@@ -77,5 +77,3 @@ const Select = (props: SelectProps) => {
         </div>
     )
 }
-
-export Select

@@ -11,7 +11,7 @@ export interface NavbarProps {
     style?: CSSProperties
 }
 
-const Navbar = (props: NavbarProps) => {
+export const Navbar = (props: NavbarProps) => {
     return (
         <div className={`navbar ${props.navColor ? `bg-${props.navColor} text-${props.navColor}-content` : 'bg-base-100'} ${props.classes}`} style={props.style}>
             {props.start ? <div className="navbar-start">{props.start}</div> : <></>}
@@ -21,5 +21,3 @@ const Navbar = (props: NavbarProps) => {
         </div>
     )
 }
-
-export Navbar

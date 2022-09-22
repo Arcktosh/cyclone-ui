@@ -8,7 +8,7 @@ export interface DividerProps {
     style?: CSSProperties
 }
 
-const Divider = (props: DividerProps) => {
+export const Divider = (props: DividerProps) => {
     const classes = ReplaceSpaces(`divider ${props.isHorizontal ? 'divider-horizontal' : ''} ${props.responsive ? 'lg:divider-horizontal' : ''}`)
 
     return (
@@ -18,4 +18,3 @@ const Divider = (props: DividerProps) => {
     )
 }
 
-export Divider

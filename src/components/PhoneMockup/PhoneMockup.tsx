@@ -10,7 +10,7 @@ export interface PhoneMockupProps {
 }
 
 export interface PhoneMockupProps {}
-const PhoneMockup = (props: PhoneMockupProps) => {
+export const PhoneMockup = (props: PhoneMockupProps) => {
     const bgColor = props.bannerBgColor ? `bg-${props.bannerBgColor} text-${props.bannerBgColor}-content` : ''
     const contentBgColor = props.contentBgColor ? `artboard artboard-demo phone-1 bg-${props.contentBgColor} text-${props.contentBgColor}-content` : 'artboard artboard-demo phone-1'
 
@@ -23,5 +23,3 @@ const PhoneMockup = (props: PhoneMockupProps) => {
         </div>
     )
 }
-
-export PhoneMockup

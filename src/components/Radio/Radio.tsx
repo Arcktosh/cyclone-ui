@@ -15,7 +15,7 @@ export interface RadioProps {
     style?: CSSProperties
 }
 
-const Radio = (props: RadioProps) => {
+export const Radio = (props: RadioProps) => {
     const color = props.color ? `radio-${props.color}` : ''
     const size = props.size ? `radio-${props.size}` : 'radio-md'
     const disabled = props.disabled ? 'cursor-not-allowed' : 'cursor-pointer'
@@ -44,5 +44,3 @@ const Radio = (props: RadioProps) => {
         <RadioBtn />
     )
 }
-
-export Radio

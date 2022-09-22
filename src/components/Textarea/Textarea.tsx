@@ -16,7 +16,7 @@ export interface TextareaProps {
     onChange?: (a: string | number) => void
 }
 
-const Textarea = (props: TextareaProps) => {
+export const Textarea = (props: TextareaProps) => {
     const [val, setVal] = useState<string | number | undefined>(undefined)
 
     useEffect(() => {
@@ -52,5 +52,3 @@ const Textarea = (props: TextareaProps) => {
         </div>
     )
 }
-
-export Textarea

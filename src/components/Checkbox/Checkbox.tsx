@@ -12,7 +12,7 @@ export interface CheckboxProps {
     style?: CSSProperties
 }
 
-const Checkbox = (props: CheckboxProps) => {
+export const Checkbox = (props: CheckboxProps) => {
     const color = props.color ? `checkbox-${props.color}` : ''
     const size = props.size ? `checkbox-${props.size}` : ''
     const disabled = props.disabled ? 'cursor-not-allowed' : 'cursor-pointer'
@@ -34,5 +34,3 @@ const Checkbox = (props: CheckboxProps) => {
         </div>
     )
 }
-
-export Checkbox

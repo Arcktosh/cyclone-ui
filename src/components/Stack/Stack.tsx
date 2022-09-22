@@ -10,7 +10,7 @@ export interface StackProps {
     color?: Colors
 }
 //TODO:Fix Stack mapping
-const Stack = (props: StackProps) => {
+export const Stack = (props: StackProps) => {
     return (
         <div className="stack">
             {/* {props.stack?.map((item, i) => (
@@ -31,5 +31,3 @@ const Stack = (props: StackProps) => {
         </div>
     )
 }
-
-export Stack

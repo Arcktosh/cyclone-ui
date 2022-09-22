@@ -2,7 +2,7 @@ import { MouseEventHandler } from 'react'
 import { ReplaceSpaces } from '../../scripts'
 import { Colors } from '../../static'
 
-type Step = {
+export type Step = {
     title?: string
     color?: Colors
     content?: string
@@ -15,7 +15,7 @@ export interface StepsProps {
     vertical?: boolean
 }
 
-const Steps = (props: StepsProps) => {
+export const Steps = (props: StepsProps) => {
     const classes = ReplaceSpaces(`steps ${props.vertical ? 'steps-vertical' : 'lg:steps-horizontal'}`)
 
     return (
@@ -34,5 +34,3 @@ const Steps = (props: StepsProps) => {
         </div>
     )
 }
-
-export Steps

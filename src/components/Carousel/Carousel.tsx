@@ -2,12 +2,12 @@ import { CSSProperties } from 'react'
 import { backgrounds, Colors, Widths } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
 
-type Image = {
+export type Image = {
     url?: string
     alt?: string
 }
 
-type Snaps = {
+export type Snaps = {
     start?: boolean
     center?: boolean
     end?: boolean
@@ -16,7 +16,7 @@ type Snaps = {
     fullBlead?: boolean
 }
 
-type Indicators = {
+export type Indicators = {
     numbers?: boolean
     arrows?: boolean
 }
@@ -31,7 +31,7 @@ export interface CarouselProps {
     indicators?: Indicators
     style?: CSSProperties
 }
-const Carousel = (props: CarouselProps) => {
+export const Carousel = (props: CarouselProps) => {
     const width = props.width ? `w-${props.width}` : ''
     const height = props.height ? `h-${props.height}` : ''
     const vertical = props.vertical ? 'carousel-vertical' : ''
@@ -80,4 +80,3 @@ const Carousel = (props: CarouselProps) => {
     )
 }
 
-export Carousel

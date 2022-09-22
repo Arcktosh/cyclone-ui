@@ -1,7 +1,7 @@
 import { CSSProperties, ReactNode, useState } from 'react'
-import Button, { ButtonProps } from '../Button/Button'
+import { Button, ButtonProps } from '../Button'
 
-type popup = {
+export type popup = {
     heading?: string
     message?: string
 }
@@ -14,7 +14,7 @@ export interface ModalProps {
     style?: CSSProperties
 }
 
-const Modal = (props: ModalProps) => {
+export const Modal = (props: ModalProps) => {
     const [showModal, setShowModal] = useState(false)
 
     const handle = () => {
@@ -40,5 +40,3 @@ const Modal = (props: ModalProps) => {
         </>
     )
 }
-
-export Modal

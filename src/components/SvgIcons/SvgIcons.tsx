@@ -510,7 +510,6 @@ export const QuestionIcon = (props: any) => (
         <line x1="12" y1="22" x2="12" y2="12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
     </svg>
 )
-
 export const HomeIcon = (props: any) => (
     <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24" {...props}>
         <path

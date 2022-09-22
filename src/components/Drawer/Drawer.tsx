@@ -2,12 +2,12 @@ import { CSSProperties, ReactNode, useRef } from 'react'
 import { Colors, Widths } from '../../static'
 import { ReplaceSpaces } from '../../scripts'
 
-type Navbar = {
+export type Navbar = {
     top?: boolean
     side?: boolean
 }
 
-type List = {
+export type List = {
     link?: string
     label?: string
     icon?: ReactNode | string
@@ -26,7 +26,7 @@ export interface DrawerProps {
     sideStyle?: CSSProperties
 }
 
-const Drawer = (props: DrawerProps) => {
+export const Drawer = (props: DrawerProps) => {
     const classes = ReplaceSpaces(
         `menu p-4 overflow-y-auto ${props.sideWidth ? `w-${props.sideWidth}` : 'w-80'} ${props.bgColor ? `bg-${props.bgColor} text-${props.bgColor}-content` : 'bg-base-100 text-base-content'}`
     )
@@ -61,5 +61,3 @@ const Drawer = (props: DrawerProps) => {
         </div>
     )
 }
-
-export Drawer

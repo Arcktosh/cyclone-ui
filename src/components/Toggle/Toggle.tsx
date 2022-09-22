@@ -10,7 +10,7 @@ export interface ToggleProps {
     label?: string
 }
 
-const Toggle = (props: ToggleProps) => {
+export const Toggle = (props: ToggleProps) => {
     const [val, setVal] = useState<boolean | undefined>(undefined)
 
     useEffect(() => {
@@ -30,5 +30,3 @@ const Toggle = (props: ToggleProps) => {
         </div>
     )
 }
-
-export Toggle

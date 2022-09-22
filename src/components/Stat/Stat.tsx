@@ -1,14 +1,14 @@
 import { ReactNode } from 'react'
 import { Colors } from '../../static'
 
-type Value = {
+export type Value = {
     label?: string
     color?: Colors
     type?: 'title' | 'value' | 'desc' | 'actions' | 'figure'
     children?: ReactNode
 }
 
-type StatItem = {
+export type StatItem = {
     values?: Value[]
     color?: Colors
     centered?: boolean
@@ -19,7 +19,7 @@ export interface StatProps {
     responsive?: boolean
 }
 
-const Stat = (props: StatProps) => {
+export const Stat = (props: StatProps) => {
     return (
         <div className={`stats ${props.vertical ? 'stats-vertical' : 'stats-horizontal'} ${props.responsive ? 'lg:stats-horizontal' : ''} shadow`}>
             {props.stats ? (
@@ -36,5 +36,3 @@ const Stat = (props: StatProps) => {
         </div>
     )
 }
-
-export Stat

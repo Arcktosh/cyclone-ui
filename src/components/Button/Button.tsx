@@ -22,7 +22,7 @@ export interface ButtonProps {
     onClick?: MouseEventHandler<HTMLButtonElement>
     style?: CSSProperties
 }
-const Button = (props: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
     const bgColor = props.bgColor ? `btn-${props.bgColor}` : ''
     const shape = props.shape ? `btn-${props.shape}` : ''
     const utilClass = props.utilClass ? `${props.utilClass}` : ''
@@ -52,5 +52,3 @@ const Button = (props: ButtonProps) => {
         </button>
     )
 }
-
-export Button

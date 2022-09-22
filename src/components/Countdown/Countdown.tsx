@@ -2,7 +2,7 @@ import { CSSProperties } from 'react'
 import { Colors, Sizes } from '../../static'
 import { ConvertDateToDaysHoursMinSec, ReplaceSpaces, UseCountdown } from '../../scripts'
 
-type Label = {
+export type Label = {
     days: string
     hours: string
     min: string
@@ -20,7 +20,7 @@ export interface CountdownProps {
     labels?: Label
 }
 //TODO: Simplify this render
-const Countdown = (props: CountdownProps) => {
+export const Countdown = (props: CountdownProps) => {
     const countDownToTime = props.date ? UseCountdown(props.date) : 0
     const [days, hours, minutes, seconds] = ConvertDateToDaysHoursMinSec(countDownToTime)
 
@@ -111,4 +111,3 @@ const Countdown = (props: CountdownProps) => {
     )
 }
 
-export Countdown

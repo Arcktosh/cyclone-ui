@@ -8,7 +8,7 @@ export interface KbdProps {
     classes?: string
     style?: CSSProperties
 }
-const Kbd = (props: KbdProps) => {
+export const Kbd = (props: KbdProps) => {
     const classes = ReplaceSpaces(`kbd ${props.size ? `kbd-${props.size}` : ''} ${props.classes}`)
 
     return (
@@ -17,5 +17,3 @@ const Kbd = (props: KbdProps) => {
         </kbd>
     )
 }
-
-export Kbd

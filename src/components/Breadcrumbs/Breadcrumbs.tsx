@@ -1,7 +1,7 @@
 import { CSSProperties, ReactNode } from 'react'
 import { ReplaceSpaces } from '../../scripts'
 
-type Link = {
+export type Link = {
     url?: string
     label?: string
     icon?: ReactNode
@@ -14,7 +14,7 @@ export interface BreadcrumbsProps {
     style?: CSSProperties
 }
 
-const Breadcrumbs = (props: BreadcrumbsProps) => {
+export const Breadcrumbs = (props: BreadcrumbsProps) => {
     const textSize = props.textSize ? `text-${props.textSize}` : 'text-sm'
     const maxWidth = props.maxWidth ? `max-w-${props.maxWidth}` : 'max-w-xs'
 
@@ -35,5 +35,3 @@ const Breadcrumbs = (props: BreadcrumbsProps) => {
         </div>
     )
 }
-
-export Breadcrumbs

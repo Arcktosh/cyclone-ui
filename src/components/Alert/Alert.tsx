@@ -1,6 +1,7 @@
 import { CSSProperties, ReactNode } from 'react'
 import { Colors } from '../../static'
 import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from '../SvgIcons'
+import '../../index.css'
 
 export interface AlertProps {
     title?: string
