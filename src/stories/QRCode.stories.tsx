@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import {QRCode} from '../components/QRCode'
+import { QRCode } from '../components/QRCode'
 
 export default {
     title: 'Components/QRCode',
@@ -21,9 +21,9 @@ ColorQRCode.args = {
 }
 export const QRCodeWithImage = Template.bind({})
 QRCodeWithImage.args = {
-    link: 'https://api.lorem.space/image/face?hash=92048',
+    link: 'https://gemomarvellabs.co.za',
     imageSettings: {
-        src: 'https://api.lorem.space/image/face?hash=92048',
+        src: 'https://gemomarvellabs.co.za/wp-content/logo.png',
         x: 51,
         y: 51,
         height: 24,
@@ -34,13 +34,13 @@ QRCodeWithImage.args = {
 export const QRCodeWithVCard = Template.bind({})
 QRCodeWithVCard.args = {
     vCard: {
-        firstname: 'John',
-        lastname: 'Doe',
-        email: 'Doe@email.com',
-        workPhone: '+1-555-555-5555',
-        url: 'https://github.com',
-        company: 'Cyclone UI',
-        street: '123 Main St',
-        country: 'United States'
+        firstname: 'Ben',
+        lastname: 'Henning',
+        email: 'b.henning@gemomarvellabs.co.za',
+        workPhone: '+27 71 483 9805',
+        url: 'https://gemomarvellabs.co.za',
+        company: 'Gemological Marvel Labs',
+        city: 'Bloemfontein',
+        country: 'South Africa'
     }
 }
